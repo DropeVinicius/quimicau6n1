@@ -1,0 +1,3786 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Script do MathJax no <head> -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    
+    <title>Nivelamento - Quimica Nivel 1 - Unidade 6</title>
+
+    <style>
+         /* Global styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .titulo-programa {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            color: #003974;
+            font-weight: lighter;
+        }
+
+        .titulo-materia {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 133px;
+            color: #003974;
+            font-weight: lighter;
+        }
+
+        .subtitulo-professor {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 59px;
+            color: #0058B4;
+            font-weight: lighter;
+        }
+
+        .titulo-unidade {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 60px;
+        }
+
+        .titulo-saiba-mais {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 70px;
+        }
+        /* Estilização de Bebas Neue FIM */
+
+
+        /* Estilização de Roboto INICIO */
+        .peso-1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 45px;
+        }
+
+        .texto {
+            font-family: 'Roboto', sans-serif;
+            font-size: 35px;
+        }
+
+        .sub-texto {
+            font-family: 'Roboto', sans-serif;
+            font-size: 25px;
+        }
+
+        .titulo-box {
+            font-family: 'Roboto', sans-serif;
+            font-size: 32px;
+        }
+
+        .fonte {
+            font-family: 'Roboto', sans-serif;
+            font-size: 25px;
+        }
+
+        .citacao {
+            font-family: 'Roboto', sans-serif;
+            font-size: 30px;
+            font-style: italic;
+        }
+        /* Estilização de Roboto FIM */
+
+        /* Navbar styles INICIO */
+        .navbar {
+            background-color: #9F43BE;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            position: -webkit-sticky; /* Para navegadores antigos */
+            position: sticky; /* Para manter no topo durante o scroll */
+            top: 0; /* Faz com que a navbar fique no topo */
+            z-index: 10; /* Garante que o menu fique acima de outros elementos */
+            transition: background-color 0.3s ease; /* Transição suave para o efeito */
+        }
+
+        .navbar .logo img {
+            height: 50px;/* Ajuste conforme necessário */
+            width: auto;
+        }
+
+        .navbar .menu-toggle {
+            cursor: pointer;
+            font-size: 1.5em;
+            display: block;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: none;
+            flex-direction: column;
+            background-color: #9f43be;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 200px;
+            height: auto;
+            border-radius: 5px;
+            z-index: 10; /* Garante que o menu esteja acima de outros elementos */
+        }
+
+        .navbar ul.show {
+            display: flex;
+        }
+
+        .navbar ul li {
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .navbar ul li a:hover {
+            color: #003974; /* Cor ao passar o mouse */
+        }
+        .navbar .menu-toggle i:last-child {
+            display: none; /* Esconde o ícone de fechar inicialmente */
+        }
+        
+
+         /* Navbar styles FIM */
+
+        /* Titulo styles INICIO */
+        .titulo-intro {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .titulo-intro h1 {
+            margin: 0;
+            padding: 15px;
+        }
+        /* Titulo styles FIM */
+
+        /* Estilo da Capa do Livro INICIO*/
+        .capa-livro {
+            position: relative;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden; /* Para evitar que o pseudoelemento saia do container */
+            border-top: 3px solid #003974;
+            border-bottom: 3px solid #003974;
+        }
+
+        .capa-livro::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://res.cloudinary.com/di4ria1pf/image/upload/v1761845452/207385370_m_qovbgr.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.40; /* Controle da opacidade */
+            z-index: -1; /* Coloca o background atrás do conteúdo */
+        }
+
+        
+
+        .capa-livro .conteudo-capa {
+            text-align: center;
+            color: white;
+            padding: 20px; /* Espaço interno para o texto */
+        }
+
+        .capa-livro .titulo-materia {
+            font-size: 80px;
+            font-family: 'Bebas Neue', cursive;
+            margin: 0;
+        }
+
+        .capa-livro .subtitulo-professor {
+            font-size: 40px;
+            font-family: 'Bebas Neue', cursive;
+            margin: 10px 0 0;
+        }
+        /* Estilo da Capa do Livro FIM*/
+
+        /* Barra Superior */
+        .barra-superior {
+            background-color: #015A42; /* Cor verde escuro */
+            width: 100%;
+            padding: 15px 15px;
+            text-align: center;
+            box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura */
+            overflow-x: hidden; /* Previne rolagem horizontal */
+        }
+
+        .barra-superior .titulo-barra {
+            font-family: 'Bebas Neue', cursive;
+            color: #FFF; /* Cor branca */
+            font-size: 50px;
+            font-weight: lighter;
+            margin: 0;
+        }
+
+        /* Conteúdo da Introdução */
+        .introducao {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            overflow-x: hidden; /* Impede rolagem horizontal */
+        }
+        
+        .introducao .titulo-introducao {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            font-weight: lighter;
+            color: #015A42; /* Cor verde */
+            margin: 10px auto 10px auto;
+        }
+
+        .introducao .caixa-texto {
+            width: 100%;
+            background-color: #E2F4EB; /* Verde mais claro */
+            padding: 64px 0;
+        }
+                /* Conteúdo centralizado dentro da faixa */
+        .introducao .conteudo-centralizado {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Parágrafos da introdução */
+        .introducao .conteudo-centralizado p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 19px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        /* RESPONSIVIDADE SEÇÕES ACIMA*/
+        /* Capa do Livro - Responsividade */
+        @media (max-width: 768px) {
+            .capa-livro {
+                height: 70vh; /* Reduz a altura da capa */
+            }
+            .capa-livro::before {
+                background-position: center center; /* centraliza melhor no mobile */
+            }
+            .capa-livro .titulo-materia {
+                font-size: 40px; /* Reduz o tamanho do título */
+            }
+
+            .capa-livro .subtitulo-professor {
+                font-size: 24px; /* Reduz o tamanho do subtítulo */
+            }
+            .capa-livro .titulo-programa {
+                font-size: 18px;
+            }
+            .capa-livro .conteudo-capa {
+                padding: 15px; /* Ajusta o padding para telas menores */
+            }
+        }   
+            /* Seção Introdução - Responsividade */
+        @media (max-width: 768px) {
+            .barra-superior {
+                padding: 10px; /* Reduz o padding da barra */
+            }
+
+            .barra-superior .titulo-barra {
+                font-size: 1.6rem;
+                max-width: 800px;
+                margin: 10px 0;
+                padding: 0 30px;
+                text-align: left;
+            }
+
+            .introducao .titulo-introducao {
+                font-size: 2.8rem; /* Reduz o tamanho do título da introdução */
+                margin-top: 20px; /* Ajusta o espaçamento superior */
+            }
+
+            .introducao .caixa-texto {
+                padding: 20px; /* Reduz o padding da caixa de texto */
+                width: 100%; /* Ajusta a largura da caixa */
+            }
+
+            .introducao .caixa-texto p {
+                font-size: 1rem; /* Reduz o tamanho do texto */
+                line-height: 1.4;
+                margin-bottom: 10px; /* Ajusta a margem entre os parágrafos */
+            }
+            .introducao .conteudo-centralizado {
+                max-width: 800px;
+                margin: 10px 0;
+                padding: 0 40px;
+            }
+        }
+        /* Responsividade para o título da seção de Programa */
+        @media (max-width: 768px) {
+            .titulo-programa {
+                font-size: 50px; /* Ajuste do tamanho do título */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo-programa {
+                font-size: 35px; /* Ajuste para telas muito pequenas */
+            }
+        }
+
+        /* Estilo base da seção */
+        .secao1 .conteudo-secao {
+            width: 100% !important;
+            padding: 64px 0 !important; /* padding vertical conforme solicitado */
+            box-sizing: border-box !important;
+        }
+        .secao1 .acordeon-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .secao1 .tabs-section {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        /* Estilo base da seção */
+        .secao1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #9f43be11;
+            padding: 20px;
+        }
+        .secao1 .outer-container-alt {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+       }
+        /* Imagem de topo */
+        .secao1 .imagem-topo {
+            width: 100%;
+            height: auto;
+            max-height: 290px; /* ajuste essa altura conforme necessário */
+            object-fit: cover; /* garante que a imagem preencha sem distorcer */
+            display: block;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+        }
+
+        /* Faixa verde */
+        .secao1 .faixa-verde {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .secao1 .faixa-verde .titulo-secao {
+            font-size: 25px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .secao1 .titulo-verde {
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        /* Parágrafo padrão */
+        .secao1 p {
+            font-size: 19px;
+            text-align: justify;
+            line-height: 1.6;
+            color: #333;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 800px;    
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .secao1 .faixa-verde .titulo-secao {
+                font-size: 20px;
+            }
+
+            .secao1 p {
+                font-size: 1rem;
+            }
+            .secao1 .imagem-topo {
+                max-height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .secao1 .faixa-verde .titulo-secao {
+                font-size: 20px;
+            }
+
+            .secao1 p {
+                font-size: 0.95rem;
+            }
+        }
+        /* Estilo base da seção */
+        .secao2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+        }
+        .secao2 .conteudo-secao {
+            width: 100%;
+            padding: 64px 0;
+            box-sizing: border-box;
+        }
+        .secao2 .acordeon-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 10px auto;
+        }
+       .secao2 .outer-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+       }
+        /* Imagem de topo */
+        .secao2 .imagem-topo {
+            width: 100%;
+            height: auto;
+            max-height: 290px; /* ajuste essa altura conforme necessário */
+            object-fit: cover; /* garante que a imagem preencha sem distorcer */
+            display: block;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+        }
+
+        /* Faixa verde */
+        .secao2 .faixa-verde {
+            width: 100%;
+            background-color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .secao2 .faixa-verde .titulo-secao {
+            font-size: 25px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .secao2 .titulo-verde {
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            color: #3a95a6; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        /* Parágrafo padrão */
+        .secao2 p {
+            font-size: 19px;
+            font-family: 'Roboto', sans-serif;
+            text-align: justify;
+            line-height: 1.6;
+            color: #333;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 800px;
+                 
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .secao2 .faixa-verde .titulo-secao {
+                font-size: 30px;
+            }
+
+            .secao2 p {
+                font-size: 1rem;
+            }
+            .secao2 .imagem-topo {
+                max-height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .secao2 .faixa-verde .titulo-secao {
+                font-size: 24px;
+            }
+
+            .secao2 p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Título centralizado fora do container */
+        .titulo-figura-central {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            font-weight: normal;
+            margin: 20px auto 15px auto;
+        }
+
+        .titulo-figura-central .figura {
+            color: #015A42; /* verde padrão */
+        }
+
+        .titulo-figura-central .figura::after {
+            content: " ";
+            white-space: pre;
+        }
+
+        /* Bloco de figura simples (sem borda e sem fundo) */
+        .bloco-figura-simples {
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0;
+            background: none;
+            border: none;
+            text-align: center;
+        }
+
+        /* Imagem centralizada */
+        .bloco-figura-simples .figura-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .bloco-figura-simples .figura-container img {
+            max-width: 55%;
+            height: auto;
+            display: block;
+        }
+
+        /* Fonte abaixo da imagem */
+        .bloco-figura-simples .fonte-imagem {
+            font-size: 12px;
+            color: #555;
+            text-align: center;
+            margin: 5px auto 12px auto;
+            max-width: 90%;
+        }
+
+        /* Descrição mais larga */
+        .bloco-figura-simples .descricao-figura-larga {
+            font-size: 14px;
+            color: #333;
+            text-align: justify;
+            line-height: 1.8;
+            max-width: 95%;
+            margin: 0 auto;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .titulo-figura-central {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+            .bloco-figura-simples .descricao-figura-larga {
+                font-size: 13px;
+                max-width: 100%;
+            }
+        }
+
+         .quadro-problema {
+            max-width: 800px;
+            width: 95%; /* adapta o quadro à tela menor */
+            margin: 20px auto;
+            border: 2px solid #015A42;
+            border-radius: 10px;
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .quadro-problema .topo {
+            background-color: #ffffff;
+            padding: 10px;
+            
+        }
+
+        .quadro-problema .resolucao {
+            background-color: #E2F4EB;
+            padding: 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .quadro-problema h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .quadro-problema p {
+            line-height: 1.6;
+            font-size: 16px;
+            margin: 20px auto;
+        }
+
+        .quadro-problema code {
+            background-color: #d9f0e1;
+            padding: 2px 4px;
+            border-radius: 20px;
+            font-family: monospace;
+        }
+        /* Estilos para cálculos matemáticos extensos */
+        .math-equation-container {
+            width: 100%;
+            overflow-x: auto;
+            padding: 10px 0;
+            margin: 10px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .math-equation-container mjx-container {
+            min-width: fit-content;
+        }
+
+        /* Scroll personalizado para equações */
+        .math-equation-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .math-equation-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .math-equation-container::-webkit-scrollbar-thumb {
+            background: #9F43BE;
+            border-radius: 3px;
+        }
+
+        .math-equation-container::-webkit-scrollbar-thumb:hover {
+            background: #8a32a9;
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            .math-equation-container {
+                padding: 8px 0;
+                margin: 8px 0;
+            }
+            
+            .resolucao p {
+                font-size: 0.95rem;
+                line-height: 1.4;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .math-equation-container {
+                padding: 6px 0;
+                margin: 6px 0;
+            }
+            
+            .resolucao p {
+                font-size: 0.9rem;
+            }
+        }
+        .figura-container-reduzida {
+            text-align: center; /* centraliza a imagem */
+            margin: 15px 0; /* espaço acima e abaixo da imagem */
+        }
+
+        .figura-container-reduzida img {
+            max-width: 85%; /* imagem ocupa a largura total no mobile */
+            height: auto; /* mantém proporção */
+            border-radius: 4px; /* opcional, suaviza bordas */
+        }
+        
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 768px) {
+            .quadro-problema {
+                width: 90%;
+                font-size: 15px;
+            }
+
+            .quadro-problema p {
+                font-size: 15px;
+                line-height: 1.5;
+            }
+
+            .figura-container-reduzida img {
+                max-width: 100%; /* imagem se ajusta completamente */
+            }
+
+            .quadro-problema .resolucao {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quadro-problema {
+                width: 95%;
+                border-width: 1.5px;
+            }
+
+            .quadro-problema p {
+                font-size: 14px;
+            }
+
+            .figura-container-reduzida img {
+                max-width: 100%;
+            }
+        }
+        .resolucao .item-recuado {
+            display: block;
+            padding-left: 25px !important;
+            position: relative;
+        }
+
+        .resolucao .item-recuado::before {
+            position: absolute;
+            left: 10px;   /* posição do ponto */
+            top: 0;
+            font-weight: bold;
+        }
+
+        /* Acordeon styles */
+        .acordeon-container {
+            margin-top: 20px;
+            width: 90%; /* Ajuste de largura */
+            max-width: 800px; /* Limite máximo */
+        }
+
+        .acordeon {
+            border-radius: 10px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .acordeon-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3a95a6;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .acordeon-headerb {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #015A42;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-headerc {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #9F43BE;
+            color: #FFF;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-headerd {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #134969; /* exemplo: laranja suave */
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-content {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #3a95a6;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentb {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #015A42;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentc {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #9F43BE;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentd {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; 
+            border: 2px solid #134969; /* mesma cor da header para consistência */
+            border-radius: 0 0 10px 10px; 
+        }
+
+        .acordeon-content p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentb p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentc p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentc h4 {
+            text-align: center;
+
+        }
+        .acordeon-contentd p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .tituloacordeonverde{
+            color: #015A42;
+        }
+            /* Estilo do ícone da seta */
+        .acordeon-icon {
+            font-size: 40px;
+            transition: transform 0.3s ease; /* Para rotação suave */
+        }
+            
+            /* Rotação da seta para cima */
+        .acordeon-header.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+        /* Rotação da seta para cima */
+        .acordeon-headerb.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+        /* Rotação da seta para cima */
+        .acordeon-headerc.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+                /* Ícone giratório */
+        .acordeon-headerd.active .acordeon-icon {
+            transform: rotate(180deg);
+        }
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .acordeon-header {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-content {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-content p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+            .acordeon-headerb {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentb {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentb p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+
+            .acordeon-headerc {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentc {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentc p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+            .acordeon-headerd {
+                font-size: 20px;
+                padding: 12px;
+            }
+
+            .acordeon-contentd {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .acordeon-contentd p {
+                margin: 15px;
+            }
+        }
+        /* Responsividade para telas menores ainda (480px) */
+        @media (max-width: 480px) {
+            .acordeon-header {
+                font-size: 16px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-content {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-content p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 19px;
+            }
+            .acordeon-headerb {
+                font-size: 16px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentb {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentb p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 19px;
+            }
+
+            .acordeon-headerc {
+                font-size: 14px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentc {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentc p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 1rem;
+            }
+            .acordeon-headerd {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .acordeon-contentd {
+                font-size: 13px;
+                padding: 8px;
+            }
+
+            .acordeon-contentd p {
+                margin: 10px;
+                font-size: 19px;
+            }
+        }
+            /* Acordeon styles FIM */
+
+        
+        .slider-texto-container {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            border: 2px solid #3a95a6;
+            padding: 20px 30px;
+            box-sizing: border-box;
+            overflow: hidden;
+            background-color: #FFF;
+            border-radius: 8px;
+        }
+        .slider-texto-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .slide-texto {
+            display: none;
+            flex-shrink: 0;
+            width: 100%;
+            text-align: center;
+            word-break: keep-all;
+            white-space: normal;
+            
+        }
+
+        .slide-texto.ativo {
+            display: block;
+        }
+
+        /* Container de imagens dentro do slide */
+        .slide-imagens {
+            display: flex;
+            flex-direction: column; /* padrão: empilha vertical */
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px; /* espaçamento interno para não colar nas bordas */
+            box-sizing: border-box;
+        }
+                /* Apenas para slides com imagens maiores */
+        .slide-com-imagens-maiores .slider-img {
+            max-width: 400px;  /* aumenta o tamanho */
+            max-height: 400px;
+        }
+                /* Apenas para slides com imagens maiores */
+        .slide-com-tres-imagens .slider-img {
+            max-width: 300px;  /* aumenta o tamanho */
+            max-height: 300px;
+        }
+
+        /* Responsividade: telas menores empilham colunas */
+        @media (max-width: 768px) {
+                        /* Apenas para slides com imagens maiores */
+            .slide-com-imagens-maiores .slider-img {
+                max-width: 200px;  /* aumenta o tamanho */
+                max-height: 200px;
+            }
+                /* Apenas para slides com imagens maiores */
+            .slide-com-tres-imagens .slider-img {
+                max-width: 150px;  /* aumenta o tamanho */
+                max-height: 150px;
+            }
+        }
+
+        /* Apenas slides que possuem colunas */
+        .slide-imagens.colunas {
+            display: flex;
+            flex-direction: row; /* colunas lado a lado */
+            justify-content: center; /* centraliza colunas no slide */
+            gap: 20px; /* espaço entre colunas */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        /* Colunas individuais */
+        .coluna-imagem {
+            display: flex;
+            flex-direction: column; /* empilha imagens dentro da coluna */
+            gap: 10px; /* espaço entre imagens */
+            align-items: center; /* centraliza horizontalmente */
+            justify-content: center; /* centraliza verticalmente dentro da coluna */
+            flex: 1; /* cada coluna ocupa largura proporcional igual */
+        }
+
+        /* Responsividade: telas menores empilham colunas */
+        @media (max-width: 768px) {
+            .slide-imagens.colunas {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        /* Imagens zoomable pequenas */
+        .slider-img {
+            max-width: 250px; /* ajuste o tamanho desejado */
+            max-height: 250px;
+            cursor: pointer; /* indica que pode ser clicada */
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            transition: transform 0.2s ease;
+        }
+
+        .slider-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .titulo-texto {
+            color: #b9e5a9;
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-family: 'Roboto', sans-serif;
+            width: 100%;
+        }
+
+        .conteudo-texto {
+            font-size: 16px !important;
+            color: #333 !important;
+            font-family: 'Roboto', sans-serif !important;
+            width: 100%;
+            margin: 0 auto;
+            word-break: normal;
+            white-space: normal;
+            text-align: center !important;
+        }
+        .titulo-texto,
+        .conteudo-texto {
+            word-break: break-word;
+            white-space: normal;
+        }
+        .seta-texto {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            border: none;
+            font-size: 30px;
+            color: #3a95a6;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .seta-texto.esquerda {
+            left: 0;
+        }
+
+        .seta-texto.direita {
+            right: 0;
+        }
+
+    @media (max-width: 768px) {
+        .titulo-texto {
+            font-size: 20px;
+        }
+
+        .conteudo-texto {
+            font-size: 18px;
+        }
+
+        .seta-texto {
+            font-size: 24px;
+        }
+    }
+        .slider-texto-indicadores {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .dot-texto {
+            height: 12px;
+            width: 12px;
+            margin: 0 6px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dot-texto.ativo {
+            background-color: #3a95a6;
+        }
+        /* ------------------- */
+        /* TEMAS DE COR        */
+        /* ------------------- */
+
+        /* Tema verde */
+        .tema-verde {
+            border-color: #92d678;
+        }
+        .tema-verdeborda {
+            border-color: #015A42 !important;
+        }
+        .tema-verde .seta-texto {
+            color: #92d678;
+        }
+        .tema-verde .dot-texto.ativo {
+            background-color: #92d678;
+        }
+
+        /* Tema roxo */
+        .tema-roxo {
+            border-color: #015A42;
+        }
+        .tema-roxo .seta-texto {
+            color: #015A42;
+        }
+        .tema-roxo .dot-texto.ativo {
+            background-color: #015A42;
+        }
+
+        /* Tema roxo */
+        .tema-green {
+            border-color: #9F43BE;
+        }
+        .tema-green .seta-texto {
+            color: #9F43BE;
+        }
+        .tema-green .dot-texto.ativo {
+            background-color: #9F43BE;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .seta-texto { font-size: 24px; }
+            .conteudo-texto { font-size: 18px; }
+        }
+
+        /* Retângulo de fundo */
+        .background-section {
+            background-color: #015A42; /* Cor de fundo verde */
+            border-radius: 20px; /* Bordas arredondadas */
+            min-height: 450px; /* Altura mínima */
+            width: 90%; /* Largura ajustada à estrutura */
+            max-width: 800px; /* Limite máximo */
+            height: auto; /* Altura do retângulo */
+            margin: 50px auto; /* Espaçamento da seção acima e centralização */
+            position: relative; /* Define o contexto de empilhamento */
+        }
+                /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .background-section {
+                width: 85%;
+                margin: 50px auto;
+                padding: 20px;
+            }
+        }
+        
+        /* Retângulo transparente (sobreposição) */
+        .transparent-section {
+            background-color: rgba(255, 255, 255, 0.822); /* Tom verde com transparência */
+            border: 2px solid #015A42; /* Borda sólida verde */
+            border-radius: 20px; /* Bordas arredondadas */
+            width: calc(100% - 40px); /* Reduz tamanho para acomodar margens */
+            height: 100%;
+            position: absolute; /* Define posicionamento relativo */
+            top: 20px;
+            left: 20px; 
+            z-index: 1; /* Garante que o retângulo fique sobre o fundo */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra opcional */
+            display: flex; /* Usamos flexbox para alinhar o conteúdo */
+            flex-direction: column; /* Alinha os elementos verticalmente */
+            justify-content: space-evenly; /* Distribui espaço uniformemente */
+            align-items: center; /* Alinha o conteúdo à esquerda */
+            text-align: center; /* Centraliza o texto */
+        }
+        
+        
+                /* Responsividade - Ajuste da largura da transparent-section para telas menores */
+        @media (max-width: 768px) {
+            .transparent-section {
+                width: 90%; /* Diminui a largura da sobreposição */
+                left: 5%; /* Ajusta o posicionamento para centralizar */
+                right: 5%; /* Garante que o elemento ocupe menos espaço na tela */
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        }
+        /* Círculo verde */
+        .circle-green {
+            position: absolute;
+            top: -30px; /* Distância do topo */
+            left: -30px; /* Distância da esquerda */
+            background-color: #015A42; /* Cor verde */
+            border-radius: 50%; /* Para garantir que seja redondo */
+            width: 120px; /* Tamanho do círculo */
+            height: 120px; /* Tamanho do círculo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2; /* Garantir que fique sobre o fundo */
+        }
+
+        /* Círculo branco sobre o verde */
+        .circle-white {
+            position: absolute;
+            top: -4px; /* Eleva o círculo branco para cima */
+            left: -5px; /* Centraliza o círculo branco sobre o verde */
+            background-color: white; /* Cor branca */
+            border-radius: 50%; /* Para garantir que seja redondo */
+            width: 120px; /* Tamanho do círculo branco */
+            height: 120px; /* Tamanho do círculo branco */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3; /* Coloca o círculo branco sobre o verde */
+        }
+
+        /* Estilizando o ícone dentro do círculo branco */
+        .circle-white i {
+            font-size: 80px; /* Tamanho do ícone */
+            color: #015A42; /* Cor verde para o ícone */
+        }
+        /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .circle-green, .circle-white {
+                width: 60px; /* Diminui o tamanho */
+                height: 60px; /* Diminui o tamanho */
+                top: -5px; /* Ajusta o posicionamento */
+                left: -5px; /* Ajusta o posicionamento */
+            }
+
+            .circle-white i {
+                font-size: 40px; /* Reduz o ícone */
+            }
+        }
+              /* Retângulo de fundo */
+        .background-section2 {
+            background-color: #015A42 !important;
+            border-radius: 20px !important;
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding: 30px; /* adiciona espaçamento interno */
+            box-sizing: border-box;
+            height: auto; /* deixa a altura fluir conforme o conteúdo */
+            min-height: unset; /* remove altura mínima fixa */
+        }
+               
+        
+                    /* Retângulo transparente */
+            .transparent-section2 {
+                background-color: rgba(255, 255, 255, 0.9);
+                border: 2px solid #015A42;
+                border-radius: 20px;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                position: relative; /* relativo em vez de absolute */
+                z-index: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 5px; /* espaço natural entre elementos */
+            }
+        
+                @media (max-width: 768px) {
+            .background-section2 {
+                width: 95%;
+                margin: 0 auto;
+                padding: 15px;
+            }
+
+            .transparent-section2 {
+                padding: 15px;
+                gap: 5px;
+            }
+        }
+        
+        /* Círculo verde */
+        .circle-green2 {
+            position: absolute;
+            top: -30px; /* Distância do topo */
+            left: -30px; /* Distância da esquerda */
+            background-color: #015A42; /* Cor verde */
+            border-radius: 50%; /* Para garantir que seja redondo */
+            width: 120px; /* Tamanho do círculo */
+            height: 120px; /* Tamanho do círculo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2; /* Garantir que fique sobre o fundo */
+        }
+
+        /* Círculo branco sobre o verde */
+        .circle-white2 {
+            position: absolute;
+            top: -4px; /* Eleva o círculo branco para cima */
+            left: -5px; /* Centraliza o círculo branco sobre o verde */
+            background-color: white; /* Cor branca */
+            border-radius: 50%; /* Para garantir que seja redondo */
+            width: 120px; /* Tamanho do círculo branco */
+            height: 120px; /* Tamanho do círculo branco */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3; /* Coloca o círculo branco sobre o verde */
+        }
+
+        /* Estilizando o ícone dentro do círculo branco */
+        .circle-white2 i {
+            font-size: 80px; /* Tamanho do ícone */
+            color: #015A42; /* Cor verde para o ícone */
+        }
+        /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .circle-green2, .circle-white2 {
+                width: 60px; /* Diminui o tamanho */
+                height: 60px; /* Diminui o tamanho */
+                top: -5px; /* Ajusta o posicionamento */
+                left: -5px; /* Ajusta o posicionamento */
+            }
+
+            .circle-white2 i {
+                font-size: 40px; /* Reduz o ícone */
+            }
+        }
+
+        .learn-more-title {
+            color: #015A42; /* Cor verde */
+            font-size: 50px; /* Tamanho do título */
+            font-weight: lighter;
+            text-align: left;
+            font-family: 'Bebas Neue', sans-serif; /* Fonte Bebas Neue */
+            margin: -25px 0;
+            width: 80%; /* Ocupa toda a largura disponível */
+        }
+        .learn-more-paragraph {
+            font-family: 'Roboto', sans-serif; /* Fonte Roboto */
+            text-align: left;
+            font-size: 17px;
+            line-height: 1.4; /* Espaçamento entre linhas */
+            color: #000; /* Cor verde */
+            margin: 0px; /* Reduz margens */
+            width: 90%; /* Ocupa toda a largura disponível */
+            word-wrap: break-word;
+        }
+         .learn-more-link {
+            font-family: 'Roboto', sans-serif; 
+            text-align: left;
+            font-size: 17px;
+            line-height: 1.4; 
+            color: #FFF; /* cor do texto */
+            margin: 0px; 
+            width: 90%; 
+            word-wrap: break-word;
+            padding: 5px;
+            background-color: #669e87;
+            cursor: pointer; /* mostra a mãozinha ao passar o mouse */
+            text-decoration: none; /* opcional: simula link */
+            transition: background-color 0.3s, color 0.3s; /* efeito ao passar o mouse */
+        }
+
+
+        .centered-paragraph {
+            text-align: center; /* Centraliza o texto horizontalmente */
+            margin: -5px 0; /* Ajusta a margem para uniformidade */
+            font-size: 17px; /* Mantém o tamanho consistente */
+            line-height: 1.4; /* Controla o espaçamento entre linhas */
+        }
+                /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .learn-more-title {
+                font-size: 35px; /* Ajusta o tamanho do título */
+                text-align: left;
+            }
+
+            .learn-more-paragraph {
+                font-size: 15px; /* Ajusta o tamanho do texto */
+                line-height: 1.4;
+                text-align: justify; /* Centraliza o texto */
+                margin: 5px 0; /* Reduz margens */
+            }
+        }
+            .outer-background {
+                background-color: #fff; /* Cor de fundo para o contêiner externo */
+        }
+        .play-icon {
+            display: flex; /* Flexbox para centralizar o conteúdo */
+            justify-content: center;
+            align-items: center;
+            background-color: #015A42; /* Fundo verde */
+            color: #FFF; /* Ícone branco */
+            width: 90px; /* Largura do botão */
+            height: 55px; /* Altura do botão */
+            border-radius: 13px;
+            font-size: 40px; /* Tamanho do ícone */
+            cursor: pointer; /* Cursor de clique */
+            transition: transform 0.3s ease; /* Efeito de transição */
+        }
+
+        .play-icon:hover {
+            transform: scale(1.1); /* Aumenta levemente no hover */
+        }
+                /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .play-icon {
+                width: 60px; /* Diminui a largura */
+                height: 40px; /* Diminui a altura */
+                font-size: 25px; /* Diminui o tamanho do ícone */
+            }
+        }
+        /* Modal - Oculto por padrão */
+        .video-modal {
+            display: none; /* Inicialmente o modal está oculto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro transparente */
+            z-index: 1000; /* Garantir que o modal fique acima de outros conteúdos */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Conteúdo do modal (onde ficará o vídeo) */
+        .video-content {
+            position: relative;
+            background-color: #015A42;
+            border-radius: 10px;
+            padding: 20px;
+        }
+         
+        /* Responsividade - Ajustes para dispositivos móveis */
+        @media (max-width: 768px) {
+            .video-content {
+                max-width: 100%; /* Maximize a largura do modal no mobile */
+                padding: 10px;
+            }
+
+            .video-content iframe {
+                width: 100%; /* O iframe ocupará toda a largura disponível */
+                height: 56.25vw; /* Isso mantém a proporção de 16:9 */
+                max-height: 80vh; /* Evita que o vídeo ultrapasse a tela */
+                border-radius: 10px;
+            }
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 40px;
+            color: #FFF;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+        .close-btn:hover {
+            transform: scale(1.2); /* Aumenta levemente no hover */
+            color: #FF0000; /* Muda a cor para vermelho no hover */
+        }
+
+        .play-icon {
+            display: flex; /* Flexbox para centralizar o conteúdo */
+            justify-content: center;
+            align-items: center;
+            background-color: #015A42; /* Fundo verde */
+            color: #FFF; /* Ícone branco */
+            width: 90px; /* Largura do botão */
+            height: 55px; /* Altura do botão */
+            border-radius: 13px;
+            font-size: 40px; /* Tamanho do ícone */
+            cursor: pointer; /* Cursor de clique */
+            transition: transform 0.3s ease; /* Efeito de transição */
+        }
+
+        .play-icon:hover {
+            transform: scale(1.1); /* Aumenta levemente no hover */
+        }
+                /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .play-icon {
+                width: 60px; /* Diminui a largura */
+                height: 40px; /* Diminui a altura */
+                font-size: 25px; /* Diminui o tamanho do ícone */
+            }
+        }
+        /* Modal - Oculto por padrão */
+        .video-modal {
+            display: none; /* Inicialmente o modal está oculto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro transparente */
+            z-index: 1000; /* Garantir que o modal fique acima de outros conteúdos */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Conteúdo do modal (onde ficará o vídeo) */
+        .video-content {
+            position: relative;
+            background-color: #015A42;
+            border-radius: 10px;
+            padding: 20px;
+        }
+         
+        /* Responsividade - Ajustes para dispositivos móveis */
+        @media (max-width: 768px) {
+            .video-content {
+                max-width: 100%; /* Maximize a largura do modal no mobile */
+                padding: 10px;
+            }
+
+            .video-content iframe {
+                width: 100%; /* O iframe ocupará toda a largura disponível */
+                height: 56.25vw; /* Isso mantém a proporção de 16:9 */
+                max-height: 80vh; /* Evita que o vídeo ultrapasse a tela */
+                border-radius: 10px;
+            }
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 40px;
+            color: #FFF;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+        .close-btn:hover {
+            transform: scale(1.2); /* Aumenta levemente no hover */
+            color: #FF0000; /* Muda a cor para vermelho no hover */
+        }
+                /* Container */
+        .video-play-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        /* Botão circular */
+        .video-play-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #2A5255, #12635D); /* Gradiente verde */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            color: #FFF;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            font-size: 55px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        /* Efeito pulsante */
+        .video-play-btn::after {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid rgba(1,90,66,0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            70% { transform: scale(1.3); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+
+        .video-play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Texto abaixo */
+        .video-play-text {
+            margin-top: 10px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: #015A42;
+            font-weight: 600;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .video-play-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 35px;
+            }
+
+            .video-play-btn::after {
+                width: 85px;
+                height: 85px;
+            }
+
+            .video-play-text {
+                font-size: 14px;
+            }
+        }
+        .fundo-transparente {
+            mix-blend-mode: multiply;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Tamanho PADRÃO e controlado da imagem */
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            transition: transform 0.2s ease;
+            transform-origin: center;
+            cursor: grab;
+        }
+
+        /* Botão fechar */
+        .lightbox-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 32px;
+            color: #fff;
+            cursor: pointer;
+            z-index: 10000;
+            opacity: 0.8;
+        }
+        .lightbox-close:hover {
+            opacity: 1;
+        }
+
+        .lightbox-hint {
+            position: absolute;
+            bottom: 20px;
+            color: #fff;
+            font-size: 14px;
+            opacity: 0.8;
+            animation: fadeOut 4s forwards;
+        }
+
+        .zoomable {
+            cursor: zoom-in;
+        }
+
+        .zoomable:hover {
+            transform: scale(1.02); /* leve efeito de destaque no hover */
+        }
+        @keyframes fadeOut {
+            0% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { opacity: 0; }
+        }
+                /* Animação suave */
+                @keyframes zoomIn {
+                    from { transform: scale(0.7); opacity: 0; }
+                    to { transform: scale(1); opacity: 1; }
+                }
+
+                 .link-sim {
+            color: #000;              /* texto preto */
+            text-decoration: none;    /* remove o sublinhado */
+            cursor: pointer;          /* indica que é clicável */
+        }
+
+        .link-sim:hover {
+            text-decoration: underline; /* opcional — mostra sublinhado só ao passar o mouse */
+        }
+         .lista-compacta {
+            list-style: none; 
+            margin: 0;
+            padding: 0;
+            padding-left: 80px;  /* recuo original (preservado) */
+        }
+
+        .lista-compacta li {
+            position: relative;
+            padding-left: 20px;
+            margin: 20px 0;
+            line-height: 1.4;
+            font-size: 1rem;
+            
+        }
+
+        .lista-compacta li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 20px;
+        }
+        /* MOBILE */
+        @media (max-width: 600px) {
+            .lista-compacta {
+                padding-left: 30px;   /* reduz recuo só no mobile */
+                margin-left: 0;       /* corrige margem negativa que aparecia */
+            }
+
+            .lista-compacta li {
+                padding-left: 18px;   /* ajusta espaço da seta */
+                margin: 16px 0;
+                font-size: 1rem;
+            }
+
+            .lista-compacta li::before {
+                font-size: 18px;
+                left: 0;
+            }
+        }
+
+        .download-section {
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+    
+        .download-btn {
+            background-color: #9F43BE;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            margin-top: 80px;
+        }
+    
+        .download-btn i {
+            font-size: 18px;
+        }
+    
+        .download-btn:hover {
+            background-color: #7D3598;
+        }
+    
+        /* ===== Seções de Conclusão e Referências ===== */
+        .conclusao,
+        .referencias {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+    
+        .conclusao {
+            background-color: #E2F4EB;
+            /* fundo suave */
+        }
+    
+        .referencias {
+            background-color: #FFF;
+            border-top: 3px solid #015A42;
+            border-bottom: 3px solid #015A42;
+        }
+    
+        /* Títulos */
+        .titulo-conclusao,
+        .titulo-referencias {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            font-weight: lighter;
+            color: #015A42;
+            margin: 10px auto 20px auto;
+            text-align: left;
+            /* garante centralização em desktop */
+        }
+    
+        /* Caixas de texto */
+        .conclusao .caixa-texto,
+        .referencias .caixa-texto {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+    
+        /* Parágrafos */
+        .conclusao .caixa-texto p,
+        .referencias .caixa-texto p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 19px;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+    
+        /* Cores de texto diferentes */
+        .conclusao .caixa-texto p {
+            color: #333;
+        }
+    
+        .referencias .caixa-texto p {
+            color: #000;
+        }
+    
+        /* Links em referências */
+        .referencias .caixa-texto a {
+            word-break: break-all;
+            color: #015A42;
+            text-decoration: underline;
+        }
+    
+        /* Responsividade */
+        @media (max-width: 768px) {
+    
+            .titulo-conclusao,
+            .titulo-referencias {
+                font-size: 2rem;
+            }
+    
+            .conclusao .caixa-texto p,
+            .referencias .caixa-texto p {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+    
+            .conclusao .caixa-texto,
+            .referencias .caixa-texto {
+                max-width: 95%;
+                padding: 15px;
+            }
+        }
+    
+        @media (max-width: 480px) {
+    
+            .titulo-conclusao,
+            .titulo-referencias {
+                font-size: 1.8rem;
+            }
+    
+            .conclusao .caixa-texto,
+            .referencias .caixa-texto {
+                max-width: 100%;
+                padding: 10px;
+            }
+        }
+    
+        /* Estilização do rodapé */
+        .footer {
+            border-top: 3px solid #015A42;
+            /* Borda superior */
+            background-color: #FFFFFF;
+            /* Fundo branco */
+            text-align: center;
+            /* Centralizar texto */
+            padding: 15px 0;
+            /* Espaçamento interno */
+            box-sizing: border-box;
+            /* Inclui padding nas dimensões */
+        }
+    
+        .footer p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #015A42;
+            /* Cor do texto */
+            margin: 0;
+            /* Remove espaçamento externo */
+        }
+    
+        /* Texto descritivo */
+        .footer .fonte-menor {
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
+            color: #555;
+            /* Cor neutra */
+            line-height: 1.5;
+            /* Espaçamento entre linhas */
+            display: block;
+            /* Garante quebra para nova linha */
+            margin-top: 10px;
+            /* Espaço entre o texto e o divisor */
+        }
+    
+        /* Divisor */
+        .footer-divider {
+            border: none;
+            /* Remove borda padrão */
+            height: 1px;
+            /* Altura da linha */
+            background-color: #015A42;
+            /* Cor da linha */
+            margin: 10px auto;
+            /* Espaçamento vertical */
+            width: 80%;
+            /* Define a largura do divisor */
+            opacity: 0.5;
+            /* Reduz opacidade para suavizar */
+        }
+    
+        /* Ajustes do rodapé para mobile */
+        @media (max-width: 480px) {
+            .footer p {
+                font-size: 15px;
+                /* Ajusta o tamanho da fonte */
+            }
+    
+            .footer .fonte-menor {
+                font-size: 12px;
+                /* Reduz tamanho da fonte */
+                line-height: 1.4;
+                /* Ajusta o espaçamento */
+            }
+    
+            .footer-divider {
+                width: 100%;
+                /* Ajusta largura do divisor no mobile */
+            }
+        }
+    
+        .logo-final {
+            background-color: #b9e5a92c;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 3px solid #015A42;
+        }
+    
+        .logo-final img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+    
+        /* Nova seção com os títulos ocupando a tela inteira */
+        .ficha-titulos {
+            background-color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+    
+        .ficha-titulos h2,
+        .ficha-titulos h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-weight: lighter;
+            font-size: 40px;
+            color: #0058B4;
+            margin: 10px 0;
+        }
+    
+        /* Mantemos a ficha técnica como estava */
+        .ficha-tecnica {
+            background-color: #FFF;
+            padding: 60px 20px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+    
+        .ficha-tecnica p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 15px auto;
+            max-width: 700px;
+        }
+    
+        .ficha-tecnica strong {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    
+        .paragraforeduzido {
+            font-size: 14px;
+        }
+
+          /* Wrapper universal para expressões longas */
+        .math-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 4px; /* espaço para o scroll no mobile */
+        }
+
+        /* Impede MathJax de estourar o container */
+        .math-wrapper mjx-container {
+            display: inline-block;
+            max-width: 100%;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://drive.google.com/thumbnail?id=1iZTd5_tOqqVTFtrgbqdKazN1J1Yk-PuE" alt="Logo">
+        </div>
+        <div class="menu-toggle">
+            <i class="bx bx-menu"></i>
+            <i class="bx bx-x" style="display: none;"></i> <!-- Ícone de fechar menu -->
+        </div>
+        <ul>
+            <li><a href="#introducao">Introdução</a></li>
+            <li><a href="#secao1">Tópico 1</a></li>
+            <li><a href="#secao2">Tópico 2</a></li>
+            <li><a href="#secao3">Tópico 3</a></li>
+            <li><a href="#secao4">Tópico 4</a></li>
+            <li><a href="#secao5">Tópico 5</a></li>
+            <li><a href="#secao6">Tópico 6</a></li>
+            <li><a href="#download">Download</a></li>
+            <li><a href="#conclusao">Conclusão</a></li>
+            <li><a href="#referencias">Refs Bibliográficas</a></li>
+        </ul>
+    </div>
+    
+    
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    
+    <!-- Capa do Livro -->
+    <section id="capa-livro" class="capa-livro">
+        <div class="borda superior"></div>
+        <div class="conteudo-capa">
+            <h1 class="titulo-programa">PROGRAMA DE ATUALIZAÇÃO em fundamentos da</h1>
+            <h1 class="titulo-materia">QUÍMICA - NÍVEL 1</h1>
+            <h2 class="subtitulo-professor">Profª Monica Tais Siqueira D'Amelio Felippe</h2>
+        </div>
+        <div class="borda inferior"></div>
+    </section>
+    
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    
+    
+    <!-- Seção Introdução -->
+    <section id="introducao" class="introducao">
+        <!-- Barra Superior -->
+        <div class="barra-superior">
+            <h1 class="titulo-barra">UNIDADE 6 | BALANCEAMENTO DE REAÇÃO</h1>
+        </div>
+    
+        <!-- Conteúdo -->
+        <div class="caixa-texto">
+            <div class="conteudo-centralizado">
+                <h1 class="titulo-introducao">INTRODUÇÃO</h1>
+                <p>
+                    Quando juntamos duas ou mais substâncias, muitas vezes vemos os átomos se rearranjarem formando novas
+                    substâncias. Tem vezes que sobra alguma substância inicial e tem vezes que não. Como podemos saber
+                    quanto de cada reagente devemos colocar para que sejam totalmente transformados em produtos, sem sobra?
+                </p>
+                <p>
+                    Para isso utilizamos as reações químicas. Através de técnicas, podemos determinar quanto de cada
+                    substância devemos colocar. Isso é o que chamamos de balanceamento químico, importantíssimo para a
+                    indústria que não quer ter perda de reagente e nem investimento com processos de separação..
+                </p>
+                <p>
+                    É isso que vamos ver nesta unidade. Vamos aprender a relacionar a quantidade de cada reagente, e
+                    quanto de produto será formado. Tudo isso utilizando quantidade em mol e em massa. Esse estudo,
+                    conhecido como estequiometria, ajuda a prever resultados, calcular massas e fazer relações quantitativas.
+                    Pode parecer um pouco técnico no começo, mas com os exemplos e estratégias certas, você vai perceber
+                    como os cálculos passam a fazer sentido.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="secao1" id="secao1">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                1. LEI DA CONSERVAÇÃO DE MASSA E PROPORÇÃO ESTEQUIOMÉTRICA
+            </h1>
+        </div>
+        <p>
+            Quando uma reação química acontece, um ou mais componentes se transformam para gerarem um ou
+            mais novos compostos. Para formar uma molécula de água, um átomo de oxigênio se liga a dois átomos
+            de hidrogênio em uma ligação covalente. Isso acontece para eles atingirem a estabilidade de estar com
+            a última camada totalmente preenchida com elétrons, <b>regra do octeto</b> (Kotz, 2023).
+        </p>
+        <p>
+            Na natureza, com exceção dos gases nobres, os átomos não se encontram livres, mas na forma de
+            moléculas ou de estruturas cristalinas, dependendo do tipo de ligação que formam. Assim, para haver
+            a formação da água, a molécula de hidrogênio \((H_2)\) reage com a molécula de oxigênio \((O_2)\), conforme a
+            reação demonstrada na Figura 1. Chamamos de <b>reagentes</b> as moléculas iniciais, que vão se rearranjar,
+            e chamamos de <b>produtos</b> as novas moléculas formadas (Chang, 2010).
+        </p>
+
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 1</strong>.</span> 
+            Reação de molécula de Hidrogênio com molécula de <br>
+            Oxigênio para formação de molécula de Água
+        </h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765908586/fig1_umukp2.png"
+                    alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pela autora.</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da imagem:</strong>
+                A imagem mostra, em sequência, a reação entre moléculas de hidrogênio e oxigênio
+                que resulta na formação da molécula de água. À esquerda, há duas moléculas de hidrogênio representadas
+                por pares de esferas azuis unidas. Ao centro, aparece uma molécula de oxigênio composta por duas esferas
+                laranjas ligadas. Uma seta aponta para a direita, indicando a transformação química. No lado direito, são
+                apresentadas duas moléculas de água, cada uma formada por uma esfera laranja (oxigênio) ligada a duas
+                esferas azuis (hidrogênio).
+            </p>
+        </section>
+        <br>
+        <p>
+            Observe que, como uma molécula de oxigênio possui dois átomos de oxigênio, e cada um desses átomos
+            se liga a dois átomos de hidrogênio, logo, para uma molécula de oxigênio são necessárias duas moléculas
+            de hidrogênio nesta reação. Além disso, são obtidas duas moléculas de água.
+        </p>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p style="text-align:center;">
+                    Quando uma reação ocorre, ela obedece a uma das leis mais importantes do Universo:
+                    A Lei de Lavoisier, que diz:
+                </p>
+                <p style="text-align:center;">
+                    <b>
+                        Na natureza nada se cria e nada se perde, tudo se transforma.
+                    </b>
+                </p>
+            </div>
+        </div>
+        <br>
+        <p>
+            Essa Lei enunciada por Lavoisier corresponde à <b>Lei da Conservação de Massa</b> (Both, 2018). Clique no
+            botão para conhecê-la:
+        </p>
+        <br>
+        <!-- Acordeons -->
+        <div class="acordeon-container">
+            <!-- Primeiro acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    LEI DA CONSERVAÇÃO DE MASSA
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p>
+                        De acordo com Lavoisier, em uma reação química, a massa dos reagentes deve ser
+                        igual à massa dos produtos. Isso é fácil de perceber quando dizemos que o número
+                        de átomos de um elemento nos reagentes deve ser igual ao número de átomos desse
+                        elemento no produto, independente da molécula na qual ele se encontra.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <p>
+            Então, se escrevermos uma reação, como a de formação da água através das moléculas de hidrogênio e
+            oxigênio, da forma apresentada a seguir, não estamos obedecendo a Lei da Conservação de Massa, pois
+            o número de átomos de oxigênio no reagente é diferente do número de oxigênio no produto. E um átomo
+            não pode simplesmente desaparecer. Nesse caso, dizemos que temos uma reação não balanceada.
+        </p>
+        <p>
+            $$ H_2 + O_2 \ ➜ \ H_{2}O$$
+        </p>
+        <p>
+            Por outro lado, quando escrevemos considerando a proporção que vimos acima pela Figura 1, dizemos
+            que temos uma reação balanceada, isto é, a quantidade de átomos de cada uma das espécies é igual
+            tanto no reagente quanto no produto.
+        </p>
+        <p>
+            $$ 2H_{2} + O_{2} \ ➜ \ 2h_{2}O$$
+        </p>
+        <p>
+            Esses números que aparecem antes de cada molécula são chamados de <b>coeficientes estequiométricos</b>
+            (Both, 2018), clique na aba para ler sobre ele:
+        </p>
+        <br>
+        <!-- Acordeons -->
+        <div class="acordeon-container">
+            <!-- Primeiro acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    COEFICIENTES ESTEQUIOMÉTRICOS
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p>
+                        Os coeficientes estequiométricos indicam a proporção entre as moléculas que participam de
+                        uma reação, para que todos os átomos que estejam nos reagentes, também estejam nos
+                        produtos, na mesma quantidade.
+                    </p>
+                    <p>
+                        Quando não aparece o coeficiente na frente da molécula, como no caso do \(O_{2}\)
+                        , subentende-se que esse número é 1.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <p>
+            Para representar a proporção estequiométrica de uma reação, escrevemos a relação entre os coeficientes
+            estequiométricos da reação. Por exemplo, com a reação de formação da água obtemos:
+        </p>
+        <p>
+            $$ 2 : 1 : 2 $$
+        </p>
+        <p>
+            Isso significa que duas moléculas de hidrogênio reagem com uma molécula de oxigênio para formar duas
+            moléculas de água.
+        </p>
+    </section>
+    <section class="secao2" id="secao2">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                2. BALANCEAMENTO
+            </h1>
+        </div>
+        <p>
+            Balancear uma reação química significa encontrar a proporção estequiométrica entre os átomos. Para
+            saber se uma reação está balanceada, contamos o número de átomos de cada elemento químico nos
+            reagentes e produtos. Se os números forem iguais, a reação está balanceada. Caso não sejam iguais, ela
+            não está balanceada (Chang, 2010).
+        </p>
+        <p>
+            Por exemplo: A formação da amônia \((NH_{3})\)  é proveniente da reação da molécula 
+            de nitrogênio \((N_{2})\) com a molécula de hidrogênio \((H_{2})\).
+        </p>
+        <p>
+            $$ N_2 + H_2 \ ➜ \ NH_{3}$$
+        </p>
+        <p>
+            Observe a seguir a contagem dos átomos:
+        </p>
+        <br>
+        <div class="figura-container-reduzida">
+            <img class="zoomable" style="max-width: 80%; width: 50%;" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765909672/fig_sn1_pbqn9w.png"
+                alt="">
+        </div>
+        <br>
+        <p>
+            Repare que precisamos considerar o índice de cada molécula. Por exemplo, na molécula de \(N_{2}\), temos
+            dois átomos de N. Na molécula de \(NH_{3}\), temos três átomos de H. Como os números de átomos são
+            diferentes, essa é uma reação <b>não balanceada</b>. Mas como podemos balancear uma reação? Há alguns
+            métodos para isso, no entanto, o método mais aplicado é o <b>Método Direto</b>, ou <b>das Tentativas</b> (Kotz,
+            2023). Vejamos a seguir:
+        </p>
+
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                2.1 MÉTODO DIRETO OU DAS TENTATIVAS
+            </h1>
+        </div>
+
+        <p>
+            Como o próprio nome diz, esse é um método de <b>tentativa</b>, isto é, um método empírico. Por meio da
+            análise do número de átomos de cada elemento, estimamos o coeficiente estequiométrico e verificamos
+            se os números estão balanceados.
+        </p>
+        <p>
+            Mesmo sendo um método de tentativas, existem <b>estratégias</b> que podem ser aplicadas, o que facilita o
+            balanceamento.
+        </p>
+        <p>
+            Vamos ver duas estratégias, ambas sequenciadas de passos que auxiliam no balanceamento. Na <b>primeira
+            estratégia</b> identifica-se qual elemento químico está desbalanceado que aparece em apenas um reagente
+            e em um produto, ou seja, o elemento químico aparece em apenas uma molécula em cada lado da
+            equação e que tenha o maior índice. Por exemplo:
+        </p>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p style="text-align:center;">
+                    Na produção de amônia, você observou que a equação <b>não balanceada</b> é:
+                </p>
+                <p>
+                    $$ N_{2} + H_{2} \ ➜ \ NH_{3} $$
+                </p>
+                <p style="text-align:center;">
+                    Assim, você pode escolher um dos elementos, nesse caso, iniciaremos pelo nitrogênio.
+                    Agora, você deve multiplicar a molécula de um pelo índice do outro, da seguinte forma:
+                </p>
+                
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 35%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765910032/fig_sn2_pkjwk0.png" alt="">
+                </div>
+                
+                <p style="text-align:center;">
+                    Feito isso, contamos novamente quantos elementos químicos temos nos reagentes e nos
+                    produtos:
+                </p>
+
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 40%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765910032/fig_sn3_ytfvwi.png" alt="">
+                </div>
+                <p style="text-align:center;">
+                    Repare que agora, multiplicamos o coeficiente pelo índice. Já havíamos feito isso antes, mas
+                    como os coeficientes eram 1, não foi explícito. No caso da \(NH_{3}\), o índice
+                    do N é um (por isso não aparece), e como tem duas moléculas, fazemos \(2 \times 1 = 2\).
+                    O mesmo para o H. Nesta molécula, temos 3 H, e como são duas moléculas, fazemos \(3 \times 2 = 6\).
+                </p>
+                <p style="text-align:center;">
+                    Observando a contagem, percebemos que precisamos ajustar o hidrogênio. Repare que no
+                    reagente, temos a molécula \(H_2\), isto é, temos 2 H. Precisamos que o reagente
+                    tenha 6 átomos de H. Como na molécula já tem 2, podemos pensar: Qual número multiplicado
+                    por 2 tem resultado 6? Isso mesmo! A resposta é 3. Então colocamos o coeficiente 3 na frente do H.
+                </p>
+                <p>
+                    $$ N_{2} + 3H_{2} \quad ➜ \quad 2NH_{3}.$$
+                </p>
+                <p style="text-align:center;">
+                    Vamos conferir se está balanceado?
+                </p>
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 40%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765910032/fig_sn4_ggwzsu.png" alt="">
+                </div>
+                <p>
+                    Como o número de átomos de cada elemento químico é igual no reagente e no produto,
+                    podemos dizer que a reação está <b>balanceada.</b>
+                </p>
+            </div>
+        </div>
+        <br>
+        <p>
+            E se ao invés de começar pelo nitrogênio, tivéssemos começado pelo H, daria certo? Vamos ver:
+        </p>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p style="text-align:center;">
+                    Se começássemos pelo hidrogênio, o mecanismo seria o mesmo:
+                </p>
+                
+        
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 35%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765910490/fig_sn5_zplpkd.png" alt="">
+                </div>
+        
+                <p style="text-align:center;">
+                    Então, conferimos:
+                </p>
+        
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 40%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765910518/fig_sn6_jeg9nc.png" alt="">
+                </div>
+                <p style="text-align:center;">
+                    Pronto, a equação está <b>balanceada</b>.
+                </p>
+                
+            </div>
+        </div>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p style="text-align:center;">
+                    Agora, veja a seguinte equação:
+                </p>
+                <p>
+                    $$ C_{2}H_{6}O + O_{2} \quad ➜ \quad CO_{2} + H_{2}O. $$
+                </p>
+                <p style="text-align:center;">
+                    Vamos conferir se ela está <b>balanceada</b>:
+                </p>
+        
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 40%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765910709/fig_sn7_j4kxwj.png" alt="">
+                </div>
+            </div>
+        </div>
+        <br>
+        <p>
+            Neste caso, o oxigênio aparece em mais de uma molécula, tanto nos reagentes como nos produtos.
+            Então não é legal começar por ele. Em caso de não ter essa diferença, existem alguns passos para serem
+            seguidos que facilita o balanceamento (Kotz, 2023), deslize pelas setas para ler:
+        </p>
+
+        <br>
+        <section class="slider-texto-container tema-green" data-slider-id="2">
+            <!-- conteúdo do slider 2 -->
+            <div class="slider-texto-wrapper">
+                <div class="slide-texto ativo">
+                    <p class="conteudo-texto">
+                        Inicie o balanceamento com os elementos ou radicais 
+                        \(SO_{4}^{-2}, NO_{3}^{-},\; etc.\) que aparecem uma só vez
+                        em ambos os lados.
+                    </p>
+                </div>
+                <div class="slide-texto">
+                    <p class="conteudo-texto">
+                        Entre esses elementos, selecione o elemento ou radical com maior índice.
+                    </p>
+                </div>
+                <div class="slide-texto">
+                    <p class="conteudo-texto">
+                        Utilize esse índice como coeficiente no membro oposto.
+                    </p>
+                </div>
+                <div class="slide-texto">
+                    <p class="conteudo-texto">
+                        Repita a sequência.
+                    </p>
+                </div>
+                <div class="slide-texto">
+                    <p class="conteudo-texto">
+                        Deixe por último os elementos que aparecem sozinhos. Nesse passo, costuma-se deixar por
+                        último os elementos hidrogênio e oxigênio se eles aparecerem como molécula em um dos lados.
+                    </p>
+                </div>
+            </div>
+            <button class="seta-texto esquerda" onclick="mudarSlideTexto(this, -1)">&#10094;</button>
+            <button class="seta-texto direita" onclick="mudarSlideTexto(this, 1)">&#10095;</button>
+            <div class="slider-texto-indicadores">
+            </div>
+        </section>
+        <br>
+        <p>
+            Agora, vamos aplicar os passos na equação:
+        </p>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p style="text-align:center;">
+                    O H e o C aparecem uma única vez. O de maior índice é o H.
+                </p>
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 45%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765910976/fig_sn8_aehmvv.png" alt="">
+                </div>
+                <p style="text-align:center;">
+                    Conferindo os valores:
+                </p>
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 35%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765911025/fig_sn9_kc6yrb.png" alt="">
+                </div>
+                <p style="text-align:center;">
+                    A equação ainda não está balanceada. Então, vamos para o C, que aparece somente
+                    uma vez de cada lado. Precisamos multiplicar por 4 no lado do produto, logo:
+                </p>
+                <p>
+                    $$ 2C_{2}H_{6}O + O_{2} \quad ➜ \quad 4CO_{2} + 6H_{2}O. $$
+                </p>
+                <p style="text-align:center;">
+                    Conferindo:
+                </p>
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 35%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765911130/fig_sn10_ignowt.png" alt="">
+                </div>
+                <p style="text-align:center;">
+                    Falta apenas ajustar o O. Para isso, precisamos de um total de 14 átomos de O nos
+                    reagentes. Na molécula \(C_{2} H_{6}O\), balanceada, temos 2. Então, precisamos
+                    de mais 12. Qual número multiplicado por 2 (índice do O) é 12?
+                </p>
+                <p style="text-align:center;">
+                    Resposta = 6.
+                </p>
+                <p style="text-align:center;">
+                    Portanto, a equação fica:
+                </p>
+                <p>
+                    $$ 2C_{2}H_{6}O + 6O_{2} \quad ➜ \quad 4CO_{2} + 6H_{2}O. $$
+                </p>
+                <p style="text-align:center;">
+                    Conferindo
+                </p>
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 35%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765911312/fig_sn11_h0ikxb.png" alt="">
+                </div>
+                <p style="text-align:center;">
+                    Pronto, agora essa equação está <b>balanceada</b>.
+                </p>
+            </div>
+        </div>
+        <br>
+        <p>
+            A <b>segunda estratégia</b> refere-se à <b>regra MACHO (Metal, Ametal, Carbono, Hidrogênio, Oxigênio)</b>. Ela
+            estratégia sugere que a ordem do balanceamento dos elementos por tentativa seja metais, seguidos por
+            ametais, depois o carbono, o hidrogênio e, por último, o oxigênio (Batista, s.d.).
+        </p>
+        <p>
+            Quer mais um exemplo? Assista ao vídeo a seguir!
+        </p>
+        <br>
+        <div class="video-play-wrapper">
+            <div class="video-play-btn" data-video="https://drive.google.com/file/d/1-n3qkmjdgJxdXkA5phmAdXRiMHG-Mw55/preview"
+                onclick="openVideoModal(this)">
+                <i class='bx bx-play'></i>
+            </div>
+            <div class="video-play-text">Clique para assistir</div>
+        </div>
+        
+        </div>
+        <!-- Modal com o vídeo -->
+        <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+            <div class="video-content" onclick="event.stopPropagation()">
+                <i class="bx bxs-x-circle close-btn" onclick="closeVideoModal()"></i>
+                <iframe id="videoIframe" width="800" height="450" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        </section>
+        <section class="secao1" id="secao3">
+            <div class="faixa-verde">
+                <h1 class="titulo-secao">
+                    3. ESTEQUIOMETRIA
+                </h1>
+            </div>
+        
+        <p>
+            A estequiometria é o cálculo da quantidade de cada reagente necessário e cada produto gerado
+            considerando a proporção do balanceamento.
+        </p>
+        <p>
+            Como exemplo, utilizaremos um churrasco:
+        </p>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p style="text-align:center;">
+                    Suponha que em um churrasco cada pessoa coma 500 g de carne. Se tivermos 10
+                    pessoas no churrasco, quanto de carne precisamos comprar?
+                </p>
+                <p>
+                    $$ 1 \ {pessoa} - 500 \ g \ carne $$
+                </p>
+                <p>
+                    $$ 10 \ {pessoas} - {x} $$ 
+                </p>
+                <p>
+                    $$ x = 5000 \ g \ ou \ 5 \ kg \ de \ carne $$
+                </p>
+            </div>
+        </div>
+        <br>
+        <p>
+            A proporção estequiométrica diz a mesma coisa, mas para reagentes e produtos de uma reação química.
+            Retomando a reação da amônia:
+        </p>
+        <p>
+            $$ N_{2} + 3H_{2} \quad ➜ \quad 2NH_{3}. $$
+        </p>
+        <p>
+            Nessa equação, você pode observar que precisamos de 1 molécula de nitrogênio para produzir 2 moléculas
+            de amônia. Para produzir 40 moléculas de amônia, quantas moléculas de nitrogênio são necessárias?
+        </p>
+        <p style="text-align: center;">
+            \( 1 \ molécula \ N_{2} - 2 \ moléculas \ de \ NH_{3} \)<br><br>
+            \( x - 40 \ moléculas \ de \ NH_{3}\)<br><br>
+            \(x = 20 \ moléculas \ de \ N_{2} \).
+        </p>
+        <p>
+            Entretanto, é muito complicado quantificar o número de moléculas, uma vez que elas são muito pequenas.
+            Então, foi introduzido um novo conceito, o mol.
+        </p>
+        <div class="faixa-verde" id="secao4">
+            <h1 class="titulo-secao">
+                4. MOL E MASSA MOLAR
+            </h1>
+        </div>
+        <p>
+            Aprendemos como calcular a massa de uma molécula, que corresponde a 1/12 da massa de carbono 12
+            (Rosenberg, 2013). Mas, quanto isso vale em grama?
+        </p>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p style="text-align:center;">
+                    Uma unidade de massa atômica (1u) equivale a \(1,6605.10^{-24}g\).
+                </p>
+                <p style="text-align:center;">
+                    Essa quantidade é praticamente impossível de medir em uma balança.
+                </p>
+                <p style="text-align:center;">
+                    Quanto de molécula seria necessário para medir 1 g desse material?
+                </p>
+                <p>$$ 1{u} - 1,6605.10^{-24} g $$</p>
+                <p>$$ x - 1g $$</p>
+                <p>$$ x = 6,02.10^{23}u. $$</p>
+            </div>
+        </div>
+        <br>
+        <p>
+            Portanto, essa quantidade ficou conhecida como a quantidade de moléculas que formam 1 mol de material.
+            O número 6,02.1023, por ser constante para qualquer elemento, ficou conhecido como número de Avogadro
+            (Rosenberg, 2013).
+        </p>
+        <p>
+            Então, se um átomo de carbono possui massa atómica 12 u, 1 mol desse material teria:
+        </p>
+        <p>$$ 1 \ átomo \ de \ C - 12 u - 12.1,6605.10^{-24} g $$</p>
+        <p>$$ 6,02.10^{23}u (= 1mol) - x $$</p>
+        <p>$$ x = 12g. $$</p>
+        <p>
+            Isso se aplica a qualquer átomo, como:
+        </p>
+        <p>$$ 1 átomo de Fe - 56u - 56.1,6605.10^{-24} g $$</p>
+        <p>$$ 6,02.10^{23}u (= 1 mol) - x $$</p>
+        <p>$$ x = 56 \ g. $$</p>
+        <br>
+        <p>
+            Desse modo, se soubermos a massa de um átomo ou de uma molécula, na unidade de massa atômica
+            (u ou u.m.a), sabemos a massa de um mol dessa substância em g.
+        </p>
+        <p>
+            À massa correspondente a um mol de uma substância damos o nome de massa molar (sua unidade é g/
+            mol). Por exemplo:
+        </p>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p style="text-align:center;">
+                    Determine a massa molar do \(CO_{2}\).
+                </p>
+                <p style="text-align:center;">
+                    Para isso, olhe na tabela periódica a massa de cada átomo:
+                </p>
+                <p>$$ C = 12 \ u.$$</p>
+                <p>$$ O = 16 \ u. $$</p>
+                <p style="text-align:center;">
+                    A massa da molécula, ou massa molecular, do \(CO_{2}\)
+                    deve considerar a massa de um
+                    carbono (C) e a massa de dois oxigênios (O), pois tem dois O na molécula, portanto:
+                </p>
+                <p>$$ 12 + 2 \cdot 16 = 44 \ u. $$</p>
+                <p style="text-align:center;">
+                    A massa molar dele é 44 g.
+                </p>
+            </div>
+        </div>
+        <br>
+    </section>
+    <section class="secao2" id="secao5">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                5. PROPORÇÃO MOLAR
+            </h1>
+        </div>
+        <p>
+            No balanceamento da reação, aprendemos quantos átomos ou moléculas de um elemento precisamos
+            para que a reação ocorra. A mesma proporção é mantida se multiplicarmos pelo <b>Número de Avogadro</b>.
+            Nesse sentido, a proporção molecular é a mesma da proporção molar. Esse conceito é muito importante,
+            pois nos permite calcular medidas mensuráveis, como a massa em quilograma, grama ou miligrama
+            (Chang, 2010). Por exemplo:
+        </p>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p style="text-align:center;">
+                    Considere a seguinte reação:
+                </p>
+                <p>
+                    $$ Cl_{2} + NaI \quad ➜ \quad NaCl + I_{2}. $$
+                </p>
+                <p style="text-align:center;">
+                    Quantos gramas de NaI serão necessários para produzir 2000 g de NaCl?
+                </p>
+                <p style="text-align:center;">
+                    Dados:
+                </p>
+                <div class="math-wrapper">
+                <p style="text-align:center;">
+                    <b>Massa Molar do Na \(MM_{Na} = 23\; g/mol; MM_{Cl} = 35,5\; g/mol; MM_{I} = 126,9\; g/mol. \)</b>
+                </p>
+                </div>
+                <p style="text-align:center;">
+                    Resolução: O primeiro passo é verificar se a reação está balanceada:
+                </p>
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 45%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765932827/fig_sn12_suwplo.png" alt="">
+                </div>
+                <p style="text-align:center;">
+                    Como pode-se notar, ela não está.
+                </p>
+                <p style="text-align:center;">
+                    Então, vamos balanceá-la, realizando a troca de índices:
+                </p>
+                <p>
+                    $$ Cl_{2} + NaI \quad ➜ \quad 2NaCl + I_{2} $$
+                </p>
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 45%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765933012/fig_sn13_nctxrl.png" alt="">
+                </div>
+                <p style="text-align:center;">
+                    Arrumando o Na:
+                </p>
+                <p>
+                    $$ Cl_{2} + 2NaI \quad ➜ \quad 2NaCl + I_{2} $$
+                </p>
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 45%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765933124/fig_sn14_ksujyj.png" alt="">
+                </div>
+                <p style="text-align:center;">
+                    Pronto, agora a equação está <b>balanceada.</b>
+                </p>
+                <p style="text-align:center;">
+                    Assim, a proporção que existe na reação é uma proporção molar.
+                </p>
+                <p>
+                    $$ 2 \ mols \ NaI - \ 2 \ mols \ NaCl \ ou $$
+                </p>
+                <p>
+                    $$ 1 \ mol \ NaI - \ 1 \ mol \ NaCl. $$
+                </p>
+            </div>
+        </div>
+        <br>
+        <p>
+            A comparação entre os reagentes e os produtos é realizada em átomos, moléculas ou mols. Então,
+            primeiro precisamos transformar a quantidade de NaCl em mol.
+        </p>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p style="text-align:center;">
+                    1 mol de NaCl tem massa = 23+35,5 = 58,5 g.
+                </p>
+                <p style="text-align:center;">
+                    Precisamos produzir 2000 g, logo, podemos fazer uma regra de três:
+                </p>
+                <br>
+                <p>
+                    $$ 1 \ mol \ NaCl - 58,5 g $$
+                </p>
+                <p>
+                    $$ x - 2000 \ g $$
+                </p>
+                <p>
+                    $$ x = 34,19 \ mol \ NaCl $$
+                </p>
+                <br>
+                <p style="text-align:center;">
+                    Agora, fazemos a proporção molar:
+                </p>
+                <br>
+                <p>$$1 \ mol \ NaI \ - \ 1 \ mol \ NaCl $$</p>
+                <p>$$x - 34,19 \ mol $$</p>
+                <p>$$x = 34,19 \ mol \ de \ NaI. $$</p>
+                <br>
+                <p style="text-align:center;">
+                    Nessa etapa, podemos voltar para a massa:
+                </p>
+                <p style="text-align:center;">
+                    Calculamos o mol NaI = 23 + 126,9 = 149,9 g
+                </p>
+                <p>
+                    $$1 \ mol \ NaI - \ 149,9 \ g $$
+                </p>
+                <p>
+                    $$34,19 \ mol - x $$
+                </p>
+                <p>
+                    $$x = 5125 \ g \ NaI. $$
+                </p>
+            </div>
+        </div>
+        <br>
+        <p>
+            Para sanar todas as dúvidas sobre esse assunto, assista a esse vídeo!
+        </p>
+        <br>
+        <div class="video-play-wrapper">
+            <div class="video-play-btn" data-video="https://drive.google.com/file/d/1PU_waFyyHjnB0XN5lKk_YyjIlZ0QjuAg/preview"
+                onclick="openVideoModal(this)">
+                <i class='bx bx-play'></i>
+            </div>
+            <div class="video-play-text">Clique para assistir</div>
+        </div>
+        
+        </div>
+        <!-- Modal com o vídeo -->
+        <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+            <div class="video-content" onclick="event.stopPropagation()">
+                <i class="bx bxs-x-circle close-btn" onclick="closeVideoModal()"></i>
+                <iframe id="videoIframe" width="800" height="450" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+    <section class="secao1" id="secao6">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                6. EXERCÍCIOS COMENTADOS
+            </h1>
+        </div>
+        <br>
+        <!-- Aplicando a correção nos cálculos problemáticos -->
+        <div class="quadro-problema">
+            <div class="topo">
+                <p><strong>1.</strong>
+                    Faça o balanceamento da seguinte reação:
+                    \(KClO_{3} \ ➜ \ KCl + O_{2} \).
+                </p>
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong>
+                    O objetivo é igualar a quantidade de átomos de cada elemento nos dois lados da equação.
+                    Vamos analisar os elementos:
+                </p>
+                <div class="figura-container-reduzida">
+                    <img class="zoomable fundo-transparente" style="max-width: 80%; width: 25%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765933796/exercicio_sn1_tntnah.png" alt="">
+                </div>
+                <p>
+                    Como o oxigênio é o único elemento com número diferente de átomos nos dois lados, começamos por
+                    ele.
+                </p>
+                <p>
+                    Passo 1 - Balanceando o oxigênio:
+                </p>
+                <p>
+                    Para igualar o número de oxigênios, buscamos o mínimo múltiplo comum entre 3 e 2, que é 6.
+                </p>
+                <p class="item-recuado">
+                    <b>▸</b> Para isso, multiplicamos \(KCIO_{3}\) por 2, pois \(2 \cdot 3 = 6\)
+                </p>
+                <p class="item-recuado">
+                    <b>▸</b> E multiplicamos \(O_{2}\) por 3, pois \(3 \cdot 2 = 6\)
+                </p>
+                <p>
+                    $$ 2KClO_{3} \ ➜ \ KCl + 3O_{2} $$
+                </p>
+                <br>
+                <p>
+                    Passo 2 – Recontando os elementos:
+                </p>
+                <div class="figura-container-reduzida">
+                    <img class="zoomable fundo-transparente" style="max-width: 80%; width: 25%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765934087/exercicio_sn2_unab5z.png" alt="">
+                </div>
+                <p>
+                    Agora os oxigênios estão equilibrados, mas o potássio (K) e o cloro (Cl) estão com o dobro nos reagentes.
+                </p>
+                <p>
+                    Passo 3 – Balanceando o K e o Cl:
+                </p>
+                <p>
+                    Multiplicamos \(KCl\) por 2, para equilibrar o \(K\) e o Cl:
+                </p>
+                <p>
+                    $$ 2KClO_{3} \ ➜ \ 2KCl + 3O_{2} $$
+                </p>
+                <p>
+                    Conferência final:
+                </p>
+                <div class="figura-container-reduzida">
+                    <img class="zoomable fundo-transparente" style="max-width: 80%; width: 25%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765934088/exercicio_sn3_eg3ogd.png" alt="">
+                </div>
+                <br>
+                <p>
+                    <b>Resposta final</b> balanceada: \(2KClO_{3} \ ➜ \ 2KCl + 3O_{2}\)
+                </p>
+            </div>
+        </div>
+        
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>2.</strong>
+                    Faça o balanceamento da seguinte reação: \(As_{2}S_{3} + O_{2} \ ➜ \  As_{2}O_{3} + SO_{2}\).
+                </p>
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong>
+                    Neste caso, o oxigênio aparece em mais de uma substância no produto. Isso exige uma
+                    atenção especial, pois o total de átomos de oxigênio deve considerar todas as moléculas em que ele
+                    aparece.
+                </p>
+                <p>
+                    Passo 1 - Análise inicial dos elementos:
+                </p>
+                <p>
+                    Vamos verificar a quantidade de átomos de cada elemento químico nos dois lados da equação, como
+                    estão inicialmente:
+                </p>
+                <div class="figura-container-reduzida">
+                    <img class="zoomable fundo-transparente" style="max-width: 80%; width: 25%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765934430/exercicio2_sn1_icui0y.png" alt="">
+                </div>
+                <p>
+                    Para iniciar o balanceamento, escolhemos aquele que está desbalanceado, que tem o maior índice e que
+                    aparece apenas uma vez nos reagentes e nos produtos, nesse caso é o S, pois o O está em mais de uma
+                    substância dos produtos.
+                </p>
+                <p>
+                    $$ 1As_{2}S_{3} + O_{2} \ ➜ \ As_{2}O_{3} + 3SO_{2} $$
+                </p>
+                <br>
+                <p>
+                    Passo 2 - Contamos novamente os átomos
+                </p>
+                <div class="figura-container-reduzida">
+                    <img class="zoomable fundo-transparente" style="max-width: 80%; width: 25%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765934429/exercicio2_sn2_e0q2kn.png" alt="">
+                </div>
+                <p>
+                    Agora precisamos balancear o oxigênio. Ele possui 9 átomos no produto, então precisamos que tenha
+                    9 átomos no reagente. Como a molécula de oxigênio já tem 2, que número multiplicado por 2, temos 9?
+                    Isso mesmo! \(\frac {9}{2} \)
+                </p>
+                <p>$$ A_{2}S_{3} + \frac {9}{2}O_{2} \ ➜ \ As_{2}O_{3} + 3SO_{2} $$</p>
+                <p>
+                    Passo 3 - Contamos novamente os átomos
+                </p>
+                <div class="figura-container-reduzida">
+                    <img class="zoomable fundo-transparente" style="max-width: 80%; width: 25%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765934430/exercicio2_sn3_huviit.png" alt="">
+                </div>
+                <p>
+                    Pronto, está balanceada!
+                </p>
+
+                <p>
+                    Para termos apenas números inteiros, nós multiplicamos todos os coeficientes por 2 para eliminar a fração:
+                </p>
+                <p>
+                    $$ 2A_{2}S_{3} + 9O_{2} \ ➜ \ 2As_{2}O_{3} + 6SO_{2}. $$
+                </p>
+                <br>
+                <p>
+                    <b>Resposta final</b> balanceada: \(2A_{2}S_{3} + 9O_{2} \ ➜ \ 2As_{2}O_{3} + 6SO_{2}\)
+                </p>
+            </div>
+        </div>
+
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>3.</strong>
+                    Considere a reação a seguir: \(H_{2}S + O_{2} \ ➜ \ SO_{2} + H_{2}O \).
+                </p>
+                <p>
+                    Quantos mols de \(O_{2}\) são necessários para produzir 25 mols de \(SO_{2}\)?
+                </p>
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong>
+                    Passo 1 - Balancear a equação
+                </p>
+                <p>
+                    Primeiro, verificamos se a equação está balanceada. Ao analisar, percebemos que os elementos não
+                    estão todos equilibrados.
+                </p>
+                <p>
+                    A equação original:
+                </p>
+                <p>
+                    $$ H_{2}S + O_{2} \ ➜ \ SO_{2} + H_{2}O $$
+                </p>
+                <p>
+                    Contagem de átomos:
+                </p>
+                <div class="figura-container-reduzida">
+                    <img class="zoomable fundo-transparente" style="max-width: 80%; width: 25%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765935819/exercicio3_sn1_hbtcng.png" alt="">
+                </div>
+                <p>
+                    O oxigênio está desequilibrado. Precisamos de 3 átomos de oxigênio. Como na molécula tem 2 átomos,
+                    multiplicamos por \(\frac {3}{2}\):
+                </p>
+                <p>
+                    $$ H_{2}S + \frac {3}{2}O_{2} \ ➜ \ SO_{2} + 4_{2}O$$
+                </p>
+                <p>
+                    Conferindo para ver se está balanceado:
+                </p>
+                <div class="figura-container-reduzida">
+                    <img class="zoomable fundo-transparente" style="max-width: 80%; width: 25%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765935820/exercicio3_sn2_th2oig.png" alt="">
+                </div>
+                <p>
+                    A reação está balanceada. Agora, multiplicamos a equação inteira por 2 para eliminar a fração:
+                </p>
+                <p>
+                    $$ 2H_{2}S + 3O_{2} \ ➜ \ 2SO_{2} + 2H_{2}O $$
+                </p>
+                <br>
+                <p>
+                    Passo 2 - Análise da proporção
+                </p>
+                <p>
+                    Agora que a equação está balanceada, podemos utilizar a proporção estequiométrica.
+                </p>
+                <p>
+                    Segundo a equação:
+                </p>
+                <p>
+                    $$ 3 \ mols \ O_{2} \ ➜ \ 2 \ mols \ SO_{2} $$
+                </p>
+                <p>
+                    Queremos saber quantos mols de \(O_{2}\) são necessários para produzir 25 mols de \(SO_{2}\).
+                    Montamos uma regra de três:
+                </p>
+                <p>
+                    $$ 3 \ mols \ O_{2} \ ➜ \ 2 \ mols \ SO_{2} $$
+                </p>
+                <p>
+                    $$ x - 50 \ mols \ de \ SO_{2} $$
+                </p>
+                <p>
+                    $$ x = 75 \ mols \ de \ O_{2}$$
+                </p>
+            </div>
+        </div>
+
+                <div class="quadro-problema">
+                    <div class="topo">
+                        <p><strong>4</strong>.
+                            Qual a massa molar das seguintes moléculas?
+                        </p>
+                        <p>a) \( Cl_2O_7 \)</p>
+                        <p>b) \( PH_3 \)</p>
+                        <p>c) \( Al(OH)_3 \)</p>
+                    </div>
+                    <div class="resolucao">
+                        <p>
+                            <strong>Resolução:</strong>
+                            A massa molar (\( MM \)) de uma substância corresponde à soma das massas atômicas de todos os átomos que
+                            compõem uma molécula dessa substância. As massas atômicas podem ser obtidas na Tabela Periódica, e são
+                            expressas em \( g/mol \).
+                        </p>
+                        <p>
+                            Valores aproximados usados:
+                        </p>
+                        <ul class="lista-compacta">
+                            <li>\( MM_{Cl} = 35,5 \; g/mol \)</li>
+                            <li>\( MM_{O} = 16 \; g/mol \)</li>
+                            <li>\( MM_{P} = 31 \; g/mol \)</li>
+                            <li>\( MM_{H} = 1 \; g/mol \)</li>
+                            <li>\( MM_{Al} = 27 \; g/mol \)</li>
+                        </ul>
+                        <br>
+                        <p>
+                            <strong>a) \( Cl_2O_7 \):</strong> São dois átomos de cloro e sete de oxigênio, portanto:
+                        </p>
+                        <div class="math-wrapper">
+                        <p>
+                            $$ MM_{Cl_2O_7} = 2 \times 35,5 + 7 \times 16 = 183 \; g/mol $$
+                        </p>
+                        </div>
+                        <br>
+                        <p>
+                            <strong>b) \( PH_3 \):</strong> É formado por 1 átomo de P e 3 átomos de H, logo:
+                        </p>
+                        <p>
+                            $$ MM_{PH_3} = 1 \times 31 + 3 \times 1 = 34 \; g/mol $$
+                        </p>
+                        <br>
+                        <p>
+                            <strong>c) \( Al(OH)_3 \):</strong> São 1 átomo de Al, 3 átomos de H e 3 átomos de O:
+                        </p>
+                        <div class="math-wrapper">
+                        <p>
+                            $$ MM_{Al(OH)_3} = 1 \times 27 + 3 \times 1 + 3 \times 16 = 78 \; g/mol$$
+                        </p>
+                        </div>
+                        <br>
+                        <p>
+                            <b>Resposta final:</b>
+                            As massas molares são: a) \( 183 \; g/mol \), b) \( 34 \; g/mol \), c) \( 78 \; g/mol \).
+                        </p>
+                    </div>
+                </div>
+
+                <div class="quadro-problema">
+                    <div class="topo">
+                        <p><strong>5</strong>.
+                            Considere a reação:
+                        </p>
+                        <div class="math-wrapper">
+                        <p>
+                            \( H_2SO_4 + Fe(OH)_3 \ ➜ \ Fe_2(SO_4)_3 + H_2O \)
+                        </p>
+                        </div>
+                        <p>
+                            Se forem utilizados 2 kg de ácido sulfúrico (\(H_2SO_4\)), quanto de sulfato de ferro (\(Fe_2(SO_4)_3\))
+                            será produzido?
+                        </p>
+                    </div>
+                    <div class="resolucao">
+                        <p>
+                            <strong>Resolução:</strong>
+                            Esse é um problema clássico de estequiometria, no qual precisamos seguir três etapas principais:
+                        </p>
+                        <p>1. Balancear a equação química.</p>
+                        <p>2. Converter a massa dada em mols.</p>
+                        <p>3. Usar a proporção molar da equação para encontrar a quantidade de matéria do produto.</p>
+                        <p>4. Converter de mol para massa.</p>
+                        <br>
+                        <p>Etapa 1 – Balanceamento da equação</p>
+                        <p>
+                            Começamos analisando os reagentes e produtos:
+                        </p>
+                        <br>
+                        <div class="math-wrapper">
+                        <p>
+                            $$ H_2SO_4 + Fe(OH)_3 \ ➜ \ Fe_2(SO_4)_3 + H_2O $$
+                        </p>
+                        </div>
+                        <br>
+                        <p>
+                            Sabemos que o sulfato (\(SO_4\)) atua como um radical e permanece intacto durante a reação. Assim, tratamos
+                            o \(SO_4\) como uma única unidade.
+                        </p>
+                        <p>
+                            Para balancear: Há 3 grupos \(SO_4\) no produto, mas apenas 1 no reagente.
+                        </p>
+                        <p>
+                            Colocamos 3 em frente ao \(H_2SO_4\).
+                        </p>
+                        <p>
+                            Há 2 átomos de ferro (Fe) no produto, então colocamos 2 em frente ao \(Fe(OH)_3\).
+                        </p>
+                        <p>
+                            Finalmente, contamos os hidrogênios e oxigênios e ajustamos a água (\(H_2O\)) para fechar o balanceamento.
+                        </p>
+                        <p>
+                            Equação final balanceada:
+                        </p>
+                        <br>
+                        <div class="math-wrapper">
+                        <p>
+                            $$ 3H_2SO_4 + Fe(OH)_3 \ ➜ \ Fe_2(SO_4)_3 + 6H_2O $$
+                        </p>
+                        </div>
+                        <br>
+                        <p>Etapa 2 – Transformando a massa em mol</p>
+                        <p>
+                            Dado:
+                        </p>
+                        <p>
+                            $$ 2 \, kg \, de \, H_2SO_4 = 2000 \, g $$
+                        </p>
+                        <br>
+                        <p>
+                            Calculamos a massa molar do \(H_2SO_4\):
+                        </p>
+                        <br>
+                        <p>
+                            $$ H_2SO_4 = 2 (1) + 32 + 4  (16) = 98 \; g/mol $$
+                        </p>
+                        <p>
+                            $$ 1 \; mol \ ➜ \ 98 \; g $$
+                            $$ x \ ➜ \ 2000 \; g $$
+                        </p>
+                        <p>
+                            $$ x = \frac{2000}{98} \approx 20,41 \; \text{mol de } H_2SO_4 $$
+                        </p>
+                        <br>
+                        <p>Etapa 3 – Proporção estequiométrica</p>
+                        <p>
+                            Pela equação balanceada:
+                        </p>
+                        <br>
+                        <div class="math-wrapper">
+                        <p>
+                            $$ 3 \; \text{mols de } H_2SO_4 \ ➜ \ 1 \; \text{mol de } Fe_2(SO_4)_3 $$
+                        </p>
+                        <p>
+                            $$ 20,41 \; \text{mol de } H_2SO_4 \ ➜ \ x \; \text{mol de } Fe_2(SO_4)_3 $$
+                        </p>
+                        <p>
+                            $$ x = \frac{20,41 \cdot 1}{3} \approx 6,8 \; \text{mol de } Fe_2(SO_4)_3 $$
+                        </p>
+                        </div>
+                        <br>
+                        <p>Etapa 4 – Convertendo para massa</p>
+                        <p>
+                            Pela equação balanceada:
+                        </p>
+                        <p>
+                            Massa molar de \( Fe_2(SO_4)_3 \):
+                        </p>
+                        <br>
+                        <div class="math-wrapper">
+                        <p>
+                            $$ 1 \ mol \ Fe_{2}(SO_{4})_{3} \ ➜ \ 2x55,8 + 3x32 + 12x16 = 399,6 \; g $$
+                        </p>
+                        <p>
+                            $$ 6,8 mol Fe_{2}(SO_{4})_{3} \ ➜ \ x $$
+                        </p>
+                        <p>
+                            $$ x = 2397,6 \ g. $$
+                        </p>
+                        </div>
+                        <br>
+                        <p>
+                            <b>Resposta Final:</b>
+                            Serão produzidos aproximadamente \(2397,6 \; g\) \((ou \; 2,4 kg)\) de \( Fe_2(SO_4)_3 \).
+                        </p>
+                    </div>
+                </div>
+    </section>
+    <!-- Seção Conclusão -->
+    <section id="conclusao" class="conclusao">
+        <!-- Conteúdo -->
+        <div class="conteudo-conclusao">
+            <div class="caixa-texto">
+                <h1 class="titulo-conclusao">CONCLUSÃO</h1>
+                <p>
+                    Depois de passar por esse conteúdo, você já é capaz de identificar quando uma equação química está
+                    ou não balanceada e sabe o que fazer para corrigir isso. Entendeu também que os números à frente das
+                    fórmulas não são aleatórios, eles indicam quantidades proporcionais que precisam ser respeitadas para
+                    que a reação ocorra corretamente.
+                </p>
+                <p>
+                    Com as noções de mol, massa molar e proporções, fica mais fácil fazer contas que envolvem reagentes
+                    e produtos, até mesmo em situações mais complexas. Agora, você tem ferramentas importantes para
+                    interpretar e resolver problemas químicos de forma mais precisa. E quanto mais praticar, mais natural
+                    será aplicar esses conceitos no seu dia a dia acadêmico.
+                </p>
+            </div>
+        </div>
+        <div id="download" class="download-section">
+            <a href="https://drive.google.com/uc?export=download&id=1e73fz9AijaSx8UAVxJDtDt_vbRkAqIQr" class="download-btn">
+                Baixar PDF <i class="fas fa-download"></i> <!-- Ícone de download -->
+            </a>
+        </div>
+    </section>
+    
+    <!-- Seção Referências -->
+    <section id="referencias" class="referencias">
+        <!-- Conteúdo -->
+        <div class="conteudo-referencias">
+            <div class="caixa-texto">
+                <h1 class="titulo-referencias">REFERÊNCIAS</h1>
+    
+                <p>BATISTA, C. <strong>Balanceamento químico.</strong> Toda Matéria, [s.d.].
+                    Disponível em:
+                    <a href="https://www.todamateria.com.br/balanceamento-quimico/" target="_blank">
+                        https://www.todamateria.com.br/balanceamento-quimico/
+                    </a>.
+                    Acesso em: 05 set. 2025.
+                </p>
+    
+                <p>BOTH, Josemere. <strong>Química geral e inorgânica.</strong> Porto Alegre: SAGAH, 2018.
+                    E-book. p.101. ISBN 9788595026803. Disponível na Minha Biblioteca.
+                    Acesso em: 05 set. 2025.
+                </p>
+    
+                <p>CHANG, Raymond. <strong>Química geral.</strong> 4. ed. Porto Alegre: ArtMed, 2010.
+                    E-book. p.74. ISBN 9788563308177. Disponível na Minha Biblioteca.
+                    Acesso em: 05 set. 2025.
+                </p>
+    
+                <p>KOTZ, John C.; TREICHEL, Paul M.; TOWNSEND, John R.; et al.
+                    <strong>Química Geral e Reações Químicas v.1.</strong> 4. ed. Porto Alegre:
+                    +A Educação - Cengage Learning Brasil, 2023. E-book. p.162.
+                    ISBN 9786555584516. Disponível na Minha Biblioteca.
+                    Acesso em: 05 set. 2025.
+                </p>
+    
+                <p>ROSENBERG, Jerome L.; EPSTEIN, Lawrence M.; KRIEGER, Peter J.
+                    <strong>Química geral.</strong> 9. ed. Porto Alegre: Bookman, 2013.
+                    E-book. p.30. ISBN 9788565837316. Disponível na Minha Biblioteca.
+                    Acesso em: 05 set. 2025.
+                </p>
+    
+            </div>
+        </div>
+    </section>
+    <!-- Seção com os créditos e ficha técnica -->
+    <section class="ficha-tecnica">
+        <p>CASA NOSSA SENHORA DA PAZ – AÇÃO SOCIAL FRANCISCANA, PROVÍNCIA FRANCISCANA DA <br>
+            IMACULADA CONCEIÇÃO DO BRASIL – ORDEM DOS FRADES MENORES</p>
+        <br>
+        <p><strong>GESTOR DO CENTRO DE INOVAÇÃO E SOLUÇÕES EDUCACIONAIS - CISE</strong>
+            Franklin Portela Correia</p>
+    
+        <p><strong>COORDENADORA DO PROGRAMA DE ATUALIZAÇÃO</strong>
+            Flávia Cristina Franco de Lima Rosa</p>
+    
+        <p><strong>SUPERVISORA EDUCACIONAL</strong>
+            Juliane Cristine Batista</p>
+    
+        <p><strong>DESIGNER INSTRUCIONAL</strong>
+            Ana Angelica Miranda Ramos</p>
+    
+        <p><strong>PROJETO GRÁFICO</strong>
+            Andréa Calegari<br>
+            Lucas Ichimaru Testa</p>
+    
+        <p><strong>DIAGRAMADORES</strong>
+            Andréa Calegari<br>
+            Lucas Ichimaru Testa</p>
+    
+        <p><strong>DESENVOLVEDOR</strong>
+            Pedro Vinicius Pires de Oliveira Dias</p>
+    
+        <p><strong>PRODUTOR AUDIOVISUAL</strong>
+            Cassio Martins de Carvalho</p>
+    
+        <p><strong>EDIÇÃO DE VÍDEOS</strong>
+            Diogo Lefort Silva<br>
+            Rafael da Silva Oliveira<br>
+            Hugo Henrique Ferreira da Silva</p>
+    
+        <br><br>
+        <p><span class="paragraforeduzido">
+                © 2026 Universidade São Francisco<br>
+                Avenida São Francisco de Assis, 218<br>
+                CEP 12916-900 – Bragança Paulista/SP
+        </p></span>
+    </section>
+    <footer class="footer">
+        <p>Copyright © de Universidade São Francisco</p>
+        <hr class="footer-divider">
+        <span class="fonte-menor">Todos os direitos reservados. Este ebook ou
+            qualquer parte dele não pode ser reproduzido ou usado em quaisquer formas (eletrônico,
+            gravação, fotocópia, distribuição pela Internet ou outros) sem autorização
+            expressa, por escrito, da <strong>Universidade São Francisco.</strong></span>
+    </footer>
+    <script>
+        // Navbar
+            document.querySelector('.menu-toggle').addEventListener('click', () => {
+                const menu = document.querySelector('.navbar ul');
+                const icons = document.querySelectorAll('.menu-toggle i'); // Seleciona ambos os ícones
+
+                menu.classList.toggle('show'); // Alterna a visibilidade do menu
+
+                // Alterna entre o ícone de abrir (menu) e o ícone de fechar (x)
+                icons[0].style.display = icons[0].style.display === 'none' ? 'block' : 'none'; // Mostra ou esconde o ícone de menu
+                icons[1].style.display = icons[1].style.display === 'none' ? 'block' : 'none'; // Mostra ou esconde o ícone de fechar
+            });
+            // Fechar o menu ao clicar em um link
+            const links = document.querySelectorAll('.navbar ul li a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    const menu = document.querySelector('.navbar ul');
+                    const icons = document.querySelectorAll('.menu-toggle i');
+
+                    // Fecha o menu ao clicar no link
+                    menu.classList.remove('show');
+                    icons[0].style.display = 'block'; // Exibe o ícone de menu
+                    icons[1].style.display = 'none'; // Esconde o ícone de fechar
+                });
+            });
+            // Captura o elemento navbar
+            const navbar = document.querySelector('.navbar');
+
+            // Função que altera a opacidade da navbar
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) { // Quando o scroll for maior que 50px
+                    navbar.style.backgroundColor = 'rgba(159, 67, 190, 0.8)'; // Opacidade 80%
+                } else {
+                    navbar.style.backgroundColor = '#9F43BE'; // Cor original sem transparência
+                }
+            });
+
+            function abrirModal(src) {
+                document.getElementById('imagem-ampliada').src = src;
+                document.getElementById('modal-imagem').classList.add('ativo');
+                atualizarContador();
+                atualizarPontos();
+            }
+
+            function fecharModal() {
+                document.getElementById('modal-imagem').classList.remove('ativo');
+            }
+
+            function navegarModal(direcao) {
+                indiceModal = (indiceModal + direcao + imagensModal.length) % imagensModal.length;
+                document.getElementById('imagem-ampliada').src = imagensModal[indiceModal];
+                atualizarContador();
+                atualizarPontos();
+            }
+
+            function atualizarContador() {
+                document.getElementById('contador-modal').textContent = `${indiceModal + 1} / ${imagensModal.length}`;
+            }
+
+            function atualizarPontos() {
+                const container = document.getElementById('pontos-modal');
+                container.innerHTML = '';
+                imagensModal.forEach((_, i) => {
+                    const ponto = document.createElement('span');
+                    if (i === indiceModal) ponto.classList.add('ativo');
+                    ponto.addEventListener('click', () => {
+                        indiceModal = i;
+                        document.getElementById('imagem-ampliada').src = imagensModal[i];
+                        atualizarContador();
+                        atualizarPontos();
+                    });
+                    container.appendChild(ponto);
+                });
+            }
+
+            const INITIAL_SCALE = 0.85; // ajuste fino aqui (0.75 a 0.9 funciona bem)
+                const lightbox = document.createElement("div");
+                lightbox.className = "lightbox";
+                document.body.appendChild(lightbox);
+
+                let scale = 1;
+                let isDragging = false;
+                let startX, startY, translateX = 0, translateY = 0;
+                let scrollPosition = 0;
+
+                function openLightbox(img) {
+                    scrollPosition = window.scrollY;
+                    document.body.style.position = "fixed";
+                    document.body.style.top = `-${scrollPosition}px`;
+                    document.body.style.width = "100%";
+
+                    lightbox.innerHTML = "";
+
+                    const imgClone = document.createElement("img");
+                    imgClone.src = img.src;
+                    imgClone.alt = img.alt;
+
+                    const closeBtn = document.createElement("div");
+                    closeBtn.className = "lightbox-close";
+                    closeBtn.innerHTML = "&times;";
+
+                    const hint = document.createElement("div");
+                    hint.className = "lightbox-hint";
+                    hint.innerText = "Use o scroll para zoom • Arraste para mover • ESC para fechar";
+
+                    lightbox.append(imgClone, closeBtn, hint);
+                    lightbox.style.display = "flex";
+
+                    scale = INITIAL_SCALE;
+                    translateX = translateY = 0;
+                    updateTransform(imgClone);
+
+                    setTimeout(() => hint.remove(), 4000);
+
+                    closeBtn.onclick = closeLightbox;
+
+                    imgClone.addEventListener("wheel", e => {
+                        e.preventDefault();
+                        scale += e.deltaY * -0.001;
+                        scale = Math.min(Math.max(0.8, scale), 4);
+                        updateTransform(imgClone);
+                    });
+
+                    imgClone.addEventListener("mousedown", e => {
+                        isDragging = true;
+                        startX = e.clientX - translateX;
+                        startY = e.clientY - translateY;
+                        imgClone.style.cursor = "grabbing";
+                    });
+
+                    window.addEventListener("mousemove", e => {
+                        if (!isDragging) return;
+                        translateX = e.clientX - startX;
+                        translateY = e.clientY - startY;
+                        updateTransform(imgClone);
+                    });
+
+                    window.addEventListener("mouseup", () => {
+                        isDragging = false;
+                        imgClone.style.cursor = "grab";
+                    });
+                }
+
+                function closeLightbox() {
+                    lightbox.style.display = "none";
+                    document.body.style.position = "";
+                    document.body.style.top = "";
+                    window.scrollTo(0, scrollPosition);
+                }
+
+                document.querySelectorAll(".zoomable").forEach(img => {
+                    img.addEventListener("click", () => openLightbox(img));
+                });
+
+                lightbox.addEventListener("click", e => {
+                    if (e.target === lightbox) closeLightbox();
+                });
+
+                document.addEventListener("keydown", e => {
+                    if (e.key === "Escape") closeLightbox();
+                });
+
+                function updateTransform(img) {
+                    img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+                }
+
+            document.querySelectorAll('.slider-texto-container').forEach(initSliderTexto);
+
+            function initSliderTexto(container) {
+                const slides = container.querySelectorAll('.slide-texto');
+                const indicatorsContainer = container.querySelector('.slider-texto-indicadores');
+
+                indicatorsContainer.innerHTML = ''; // Limpa indicadores anteriores
+
+                // Cria os dots dinamicamente
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot-texto');
+                    dot.onclick = () => mostrarSlide(index);
+                    indicatorsContainer.appendChild(dot);
+                });
+
+                const dots = container.querySelectorAll('.dot-texto');
+                let currentIndex = 0;
+
+                function mostrarSlide(index) {
+                    slides.forEach(slide => slide.classList.remove('ativo'));
+                    dots.forEach(dot => dot.classList.remove('ativo'));
+
+                    currentIndex = (index + slides.length) % slides.length;
+
+                    slides[currentIndex].classList.add('ativo');
+                    dots[currentIndex].classList.add('ativo');
+                }
+
+                // Armazena a função no container para chamadas externas
+                container.mostrarSlideTexto = mostrarSlide;
+                container.getCurrentIndex = () => currentIndex;
+                mostrarSlide(0);
+            }
+
+            // Chamado pelos botões de seta
+            function mudarSlideTexto(button, direcao) {
+                const container = button.closest('.slider-texto-container');
+                const currentIndex = container.getCurrentIndex();
+                container.mostrarSlideTexto(currentIndex + direcao);
+            }
+
+            // Chamado pelos dots (não necessário, mas deixado por compatibilidade)
+            function irParaSlideTexto(dot, index) {
+                const container = dot.closest('.slider-texto-container');
+                container.mostrarSlideTexto(index);
+            }
+        document.querySelectorAll('.acordeon-header, .acordeon-headerb, .acordeon-headerc, .acordeon-headerd').forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const isVisible = content.style.display === 'block';
+                    content.style.display = isVisible ? 'none' : 'block';
+                    const icon = header.querySelector('.acordeon-icon');
+                    if (icon) {
+                        icon.classList.toggle('bx-chevron-up', !isVisible);
+                        icon.classList.toggle('bx-chevron-down', isVisible);
+                    }
+                });
+            });
+
+            document.addEventListener("DOMContentLoaded", function () {
+                    const videoModal = document.getElementById('videoModal');
+                    const iframe = document.getElementById('videoIframe');
+
+                    // Função para abrir modal
+                    window.openVideoModal = function (element) {
+                        const videoLink = element.getAttribute("data-video");
+                        iframe.src = videoLink;
+                        videoModal.style.display = "flex";
+                    }
+
+                    // Função para fechar modal
+                    window.closeVideoModal = function () {
+                        iframe.src = "";
+                        videoModal.style.display = "none";
+                    }
+
+                    // Fecha ao clicar fora do conteúdo
+                    videoModal.addEventListener('click', function (event) {
+                        if (event.target === this) {
+                            closeVideoModal();
+                        }
+                    });
+                });
+    </script>
+</body>
+</html>
