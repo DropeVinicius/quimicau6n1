@@ -2375,7 +2375,7 @@
             tanto no reagente quanto no produto.
         </p>
         <p>
-            $$ 2H_{2} + O_{2} \ ➜ \ 2h_{2}O$$
+            $$ 2H_{2} + O_{2} \ ➜ \ 2H_{2}O$$
         </p>
         <p>
             Esses números que aparecem antes de cada molécula são chamados de <b>coeficientes estequiométricos</b>
@@ -2809,7 +2809,7 @@
         <p>
             Isso se aplica a qualquer átomo, como:
         </p>
-        <p>$$ 1 átomo de Fe - 56u - 56.1,6605.10^{-24} g $$</p>
+        <p>$$ 1 \ átomo \ de \ Fe - 56u - 56.1,6605.10^{-24} g $$</p>
         <p>$$ 6,02.10^{23}u (= 1 mol) - x $$</p>
         <p>$$ x = 56 \ g. $$</p>
         <br>
@@ -3032,7 +3032,7 @@
                     Para igualar o número de oxigênios, buscamos o mínimo múltiplo comum entre 3 e 2, que é 6.
                 </p>
                 <p class="item-recuado">
-                    <b>▸</b> Para isso, multiplicamos \(KCIO_{3}\) por 2, pois \(2 \cdot 3 = 6\)
+                    <b>▸</b> Para isso, multiplicamos \(KClO_{3}\) por 2, pois \(2 \cdot 3 = 6\)
                 </p>
                 <p class="item-recuado">
                     <b>▸</b> E multiplicamos \(O_{2}\) por 3, pois \(3 \cdot 2 = 6\)
@@ -3055,7 +3055,7 @@
                     Passo 3 – Balanceando o K e o Cl:
                 </p>
                 <p>
-                    Multiplicamos \(KCl\) por 2, para equilibrar o \(K\) e o Cl:
+                    Multiplicamos \(KCl\) por 2, para equilibrar o \(K\) e o \(Cl\):
                 </p>
                 <p>
                     $$ 2KClO_{3} \ ➜ \ 2KCl + 3O_{2} $$
@@ -3135,11 +3135,11 @@
                     Para termos apenas números inteiros, nós multiplicamos todos os coeficientes por 2 para eliminar a fração:
                 </p>
                 <p>
-                    $$ 2A_{2}S_{3} + 9O_{2} \ ➜ \ 2As_{2}O_{3} + 6SO_{2}. $$
+                    $$ 2As_{2}S_{3} + 9O_{2} \ ➜ \ 2As_{2}O_{3} + 6SO_{2}. $$
                 </p>
                 <br>
                 <p>
-                    <b>Resposta final</b> balanceada: \(2A_{2}S_{3} + 9O_{2} \ ➜ \ 2As_{2}O_{3} + 6SO_{2}\)
+                    <b>Resposta final</b> balanceada: \(2As_{2}S_{3} + 9O_{2} \ ➜ \ 2As_{2}O_{3} + 6SO_{2}\)
                 </p>
             </div>
         </div>
@@ -3606,93 +3606,96 @@
                 });
             }
 
-            const INITIAL_SCALE = 0.85; // ajuste fino aqui (0.75 a 0.9 funciona bem)
+            
+                // Cria o container lightbox
                 const lightbox = document.createElement("div");
-                lightbox.className = "lightbox";
+                lightbox.classList.add("lightbox");
                 document.body.appendChild(lightbox);
 
-                let scale = 1;
+                let scale = 1; // nível de zoom
                 let isDragging = false;
                 let startX, startY, translateX = 0, translateY = 0;
-                let scrollPosition = 0;
-
-                function openLightbox(img) {
-                    scrollPosition = window.scrollY;
-                    document.body.style.position = "fixed";
-                    document.body.style.top = `-${scrollPosition}px`;
-                    document.body.style.width = "100%";
-
-                    lightbox.innerHTML = "";
-
-                    const imgClone = document.createElement("img");
-                    imgClone.src = img.src;
-                    imgClone.alt = img.alt;
-
-                    const closeBtn = document.createElement("div");
-                    closeBtn.className = "lightbox-close";
-                    closeBtn.innerHTML = "&times;";
-
-                    const hint = document.createElement("div");
-                    hint.className = "lightbox-hint";
-                    hint.innerText = "Use o scroll para zoom • Arraste para mover • ESC para fechar";
-
-                    lightbox.append(imgClone, closeBtn, hint);
-                    lightbox.style.display = "flex";
-
-                    scale = INITIAL_SCALE;
-                    translateX = translateY = 0;
-                    updateTransform(imgClone);
-
-                    setTimeout(() => hint.remove(), 4000);
-
-                    closeBtn.onclick = closeLightbox;
-
-                    imgClone.addEventListener("wheel", e => {
-                        e.preventDefault();
-                        scale += e.deltaY * -0.001;
-                        scale = Math.min(Math.max(0.8, scale), 4);
-                        updateTransform(imgClone);
-                    });
-
-                    imgClone.addEventListener("mousedown", e => {
-                        isDragging = true;
-                        startX = e.clientX - translateX;
-                        startY = e.clientY - translateY;
-                        imgClone.style.cursor = "grabbing";
-                    });
-
-                    window.addEventListener("mousemove", e => {
-                        if (!isDragging) return;
-                        translateX = e.clientX - startX;
-                        translateY = e.clientY - startY;
-                        updateTransform(imgClone);
-                    });
-
-                    window.addEventListener("mouseup", () => {
-                        isDragging = false;
-                        imgClone.style.cursor = "grab";
-                    });
-                }
-
-                function closeLightbox() {
-                    lightbox.style.display = "none";
-                    document.body.style.position = "";
-                    document.body.style.top = "";
-                    window.scrollTo(0, scrollPosition);
-                }
 
                 document.querySelectorAll(".zoomable").forEach(img => {
-                    img.addEventListener("click", () => openLightbox(img));
+                    img.addEventListener("click", () => {
+                        const imgClone = document.createElement("img");
+                        imgClone.src = img.src;
+                        imgClone.alt = img.alt;
+                        imgClone.style.objectFit = "contain";
+                        imgClone.style.maxWidth = "100%";
+                        imgClone.style.maxHeight = "100%";
+
+                        /* 🔥 Wrapper branco */
+                        const imgWrapper = document.createElement("div");
+                        imgWrapper.style.background = "#fff";
+                        imgWrapper.style.padding = "20px";
+                        imgWrapper.style.borderRadius = "8px";
+                        imgWrapper.style.maxWidth = "90vw";
+                        imgWrapper.style.maxHeight = "90vh";
+                        imgWrapper.style.display = "flex";
+                        imgWrapper.style.alignItems = "center";
+                        imgWrapper.style.justifyContent = "center";
+
+                        imgWrapper.appendChild(imgClone);
+
+                        lightbox.innerHTML = "";
+                        lightbox.appendChild(imgWrapper);
+                        lightbox.style.display = "flex";
+                        scale = 1;
+                        translateX = translateY = 0;
+                        updateTransform(imgClone);
+
+                        // Mensagem de dica
+                        const hint = document.createElement("div");
+                        hint.classList.add("lightbox-hint");
+                        hint.innerText = "Use a roda do mouse para dar zoom e arraste para mover";
+                        lightbox.appendChild(hint);
+
+                        // Remove a dica após 4s
+                        setTimeout(() => {
+                            if (hint && hint.parentNode) {
+                                hint.remove();
+                            }
+                        }, 4000);
+
+                        // Zoom com scroll
+                        imgClone.addEventListener("wheel", e => {
+                            e.preventDefault();
+                            scale += e.deltaY * -0.001;
+                            scale = Math.min(Math.max(1, scale), 5); // limite de zoom
+                            updateTransform(imgClone);
+                        });
+
+                        // Arrastar imagem
+                        imgClone.addEventListener("mousedown", e => {
+                            isDragging = true;
+                            startX = e.clientX - translateX;
+                            startY = e.clientY - translateY;
+                            lightbox.style.cursor = "grabbing";
+                        });
+
+                        window.addEventListener("mousemove", e => {
+                            if (!isDragging) return;
+                            translateX = e.clientX - startX;
+                            translateY = e.clientY - startY;
+                            updateTransform(imgClone);
+                        });
+
+                        window.addEventListener("mouseup", () => {
+                            isDragging = false;
+                            lightbox.style.cursor = "grab";
+                        });
+                    });
                 });
 
+                // Fecha clicando fora da imagem
                 lightbox.addEventListener("click", e => {
-                    if (e.target === lightbox) closeLightbox();
+                    if (e.target === lightbox) {
+                        lightbox.style.display = "none";
+                    }
                 });
 
-                document.addEventListener("keydown", e => {
-                    if (e.key === "Escape") closeLightbox();
-                });
-
+                // Função para aplicar zoom + movimento
                 function updateTransform(img) {
                     img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
                 }
